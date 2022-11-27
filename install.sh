@@ -1,3 +1,7 @@
+#!/bin/bash
+# This is the meta-installation script for my configs. Edit it if you like, and PR it if you think your modification is good.
+# There is currently no other distros supported besides arch, so add that and PR the the repo if you can.
+
 COLOR='\033[0;32m'
 NOCOLOR='\033[0m'
 echo -e "${COLOR}Install software for my configs.${NOCOLOR}"
