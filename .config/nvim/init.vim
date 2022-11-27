@@ -31,6 +31,3 @@ filetype plugin indent on   " Indents or sthing idk
 	vnoremap . :normal .<CR>
 " Splits open at the bottom and right, which is smart, unlike vim defaults.
 	set splitbelow splitright   
-call plug#begin()
-Plug 'rust-lang/rust.vim'
-call plug#end()
