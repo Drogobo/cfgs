@@ -20,4 +20,6 @@ echo -e "${COLOR}Install more crap but from the AUR.${NOCOLOR}"
 paru -S --needed ttf-hack ttf-twemoji adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts ttf-ubraille qalculate-gtk
 echo -e "${COLOR}Do a quick update to finalize.${NOCOLOR}"
 paru -Syu && flatpak update
-echo -e "${COLOR}I also included a bonus wallpaper! It is in the same dir as this script. If you want to use it, it is called 'Woods.jpg'.${NOCOLOR}"
+echo -e "${COLOR}I also included a bonus wallpaper! It is going to be included by default, so feel free to change it. it will be located in ~/Pictures.${NOCOLOR}"
+mkdir --parents ~/Pictures
+cp Woods.jpg ~/Pictures
