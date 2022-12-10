@@ -5,7 +5,7 @@
 COLOR='\033[0;32m'
 NOCOLOR='\033[0m'
 echo -e "${COLOR}Install software for my configs.${NOCOLOR}"
-sudo pacman -S --needed neovim kitty plasma xorg neofetch flatpak firefox doas git base-devel python-pip
+sudo pacman -S --needed neovim rustup kitty plasma xorg neofetch flatpak firefox doas git base-devel python-pip luajit
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 pip3 install --user neovim
 echo -e "${COLOR}Installing paru-bin from the AUR.${NOCOLOR}"
