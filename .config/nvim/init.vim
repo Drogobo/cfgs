@@ -30,38 +30,5 @@ Plug 'tpope/vim-surround'
 Plug 'rust-lang/rust.vim'
 Plug 'jreybert/vimagit'
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'neovim/nvim-lspconfig'
 call plug#end()
 PlugInstall | quit
-
-lua << EOF
-local cmp = require "cmp"
-cmp.setup {
-  snippet = {
-    expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
-    end,
-  },
-
-  mapping = {
-    ['<CR>'] = cmp.mapping.confirm({ select = true })
-  },
-
-  sources = cmp.config.sources({
-    { name = "nvim_lsp" },
-    { name = "buffer" },
-  }),
-}
-EOF
-
-lua << EOF
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-require'lspconfig'.cssls.setup {
-  capabilities = capabilities,
-}
-EOF
