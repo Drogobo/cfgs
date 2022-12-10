@@ -8,6 +8,7 @@ export EDITOR=nvim
 PS1='[\u@\h \W]\$ '
 #. "$HOME/.cargo/env"
 export PATH="$HOME/.cargo/bin/:$PATH"
+export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library
 
 # ALIASES
 alias updates='paru -Syu && flatpak update'
