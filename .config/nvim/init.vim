@@ -31,4 +31,3 @@ Plug 'rust-lang/rust.vim'
 Plug 'jreybert/vimagit'
 Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
-PlugInstall | quit
