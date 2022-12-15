@@ -15,7 +15,7 @@ export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library
 alias updates='
 if [ -x "$(command -v apt)" ]; then doas apt update && doas apt upgrade
 elif [ -x "$(command -v pacman)" ]; then paru -Syu
-elif [ -x "$(command -v portage)" ]; then doas emaint -a sync && doas emerge --ask --verbose --update --deep --changed-use @world
+elif [ -x "$(command -v emerge)" ]; then doas emaint -a sync && doas emerge --ask --verbose --update --deep --changed-use @world
 elif [ -x "$(command -v dnf)" ]; then doas dnf upgrade
 else echo "Cannot figure out how to update on whatever this OS is.">&2; fi
 flatpak update
