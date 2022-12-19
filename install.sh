@@ -5,9 +5,9 @@
 COLOR='\033[0;32m'
 NOCOLOR='\033[0m'
 echo -e "${COLOR}Install software for my configs.${NOCOLOR}"
-if [ -x "$(command -v apt-get)" ]; then sudo apt-get -y install doas flatpak neovim kitty xorg kde-standard git curl rust-all python neofetch fonts-hack
-elif [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty plasma-desktop xorg neofetch flatpak doas git base-devel python-pip luajit curl
-elif [ -x "$(command -v emerge)" ]; then sudo emerge -a app-editors/neovim dev-lang/rust sys-apps/flatpak x11-terms/kitty app-admin/doas dev-vcs/git app-misc/neofetch net-misc/curl dev-python/pip media-fonts/hack kde-plasma/plasma-desktop
+if [ -x "$(command -v apt-get)" ]; then sudo apt-get -y install doas flatpak neovim kitty xorg kde-standard git curl rust-all python neofetch fonts-hack fuse libfuse2
+elif [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty plasma-desktop xorg neofetch flatpak doas git base-devel python-pip luajit curl && sudo chmod u+s "$(which fusermount)"
+elif [ -x "$(command -v emerge)" ]; then sudo emerge -a app-editors/neovim dev-lang/rust sys-apps/flatpak x11-terms/kitty app-admin/doas dev-vcs/git app-misc/neofetch net-misc/curl dev-python/pip media-fonts/hack kde-plasma/plasma-desktop sys-fs/fuse:0
 else echo "Cannot figure out how to insatll software on whatever this OS is.">&2; fi
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 pip3 install --user neovim
