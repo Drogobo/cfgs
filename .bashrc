@@ -18,6 +18,7 @@ elif [ -x "$(command -v pacman)" ]; then paru -Syu
 elif [ -x "$(command -v emerge)" ]; then doas emaint -a sync && doas emerge --ask --verbose --update --deep --changed-use @world
 else echo "Cannot figure out how to update on whatever this OS is.">&2; fi
 flatpak update
+nvim --headless +PlugInstall +PlugUpdate +qa
 '
 alias nim='nvim'
 alias btw='neofetch'
