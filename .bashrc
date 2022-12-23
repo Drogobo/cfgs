@@ -8,7 +8,7 @@ export EDITOR=nvim
 PS1='[\u@\h \W]\$ '
 #. "$HOME/.cargo/env"
 export PATH="$HOME/.cargo/bin/:$PATH"
-export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 
 # ALIASES
 
@@ -19,6 +19,7 @@ elif [ -x "$(command -v emerge)" ]; then doas emaint -a sync && doas emerge --as
 else echo "Cannot figure out how to update on whatever this OS is.">&2; fi
 flatpak update
 nvim --headless +PlugInstall +PlugUpdate +qa
+echo
 '
 alias nim='nvim'
 alias btw='neofetch'
