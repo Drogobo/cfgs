@@ -12,6 +12,7 @@ syntax enable		    " idk man
 scriptencoding utf-8	    " Encode utf8
 set mouse=a                 " enable mouse click
 set nocompatible	    " not compatable
+set noshowmode
 set wildmode=longest,list,full " get bash-like tab completions
 set clipboard=unnamedplus   " using system clipboard
 filetype plugin on	    " For plugs
@@ -26,8 +27,51 @@ set completeopt=menu,menuone,noselect   " Auto completion stuff
 " Plugins
 call plug#begin()
 Plug 'ap/vim-css-color'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'tpope/vim-surround'
 Plug 'rust-lang/rust.vim'
-Plug 'jreybert/vimagit'
 Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
+
+lua << END
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'material',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {''},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+}
+END
