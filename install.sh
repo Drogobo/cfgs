@@ -24,8 +24,8 @@ paru -S --needed ttf-hack ttf-twemoji adobe-source-han-sans-jp-fonts adobe-sourc
 else echo -e "${COLOR}Skipping AUR packages because you are not on arch.${NOCOLOR}">&2; fi
 echo -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
 sudo cp -v -r paru.conf doas.conf pacman.conf /etc/
-sudo cp bashrc /etc/bash/bashrc
-sudo cp bashrc /etc/bash.bashrc
+sudo cp -v bashrc /etc/bash/bashrc
+sudo cp -v bashrc /etc/bash.bashrc
 cp -v -r .config/ .bashrc .gtkrc-2.0 ~/
 echo -e "${COLOR}Do a quick update to finalize.${NOCOLOR}"
 if [ -x "$(command -v apt)" ]; then doas apt update && doas apt upgrade
