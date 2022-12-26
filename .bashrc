@@ -33,6 +33,7 @@ alias findproc='ps aux | grep -i'
 alias killde='kquitapp5 plasmashell && kstart5 plasmashell'
 alias 0x0="curl -F 'file=@-' 0x0.st"
 alias day='date +"%B %d, %Y"'
+alias makemykernel='cp /usr/src/linux/.config /usr/src/linux/backup.config && genkernel --makeopts=-j9 --kernel-config=/usr/src/linux/backup.config --menuconfig all'
 findpid() {
 	pgrep -f -i "$1" | xargs echo 
 }
@@ -45,3 +46,5 @@ parse_git_branch() {
 
 # Color
 export PS1="\[\e[31m\][\[\e[m\]\[\e[33m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[36m\]\h\[\e[m\] \[\e[35m\]\w\\[\033[33m\]\$(parse_git_branch)\[\e[m\]\[\e[31m\]]\[\e[m\]$ "
+# This one goes out to my gentoo homies
+cd ~
