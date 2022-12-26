@@ -1,0 +1,41 @@
+[KFileDialog Settings]
+Recent Files[$e]=xbindkeys,file:$HOME/Documents/Portable/Other/Startup/autostart.sh,file:///usr/bin/xmodmap,file:$HOME/.config/sxhkd/startup.sh,file:$HOME/Pictures/Woods.png,file:$HOME/Pictures/Mountains.png,file:$HOME/Documents/Portable/Other/XMousePasteBlock/xmousepasteblock
+Recent URLs[$e]=file:$HOME/Pictures/,file:$HOME/,file:$HOME/.config/sxhkd/,file:$HOME/Documents/Portable/Other/Startup/,file:///,file:$HOME/Documents/Portable/,file:$HOME/Videos/,file:$HOME/Documents/Portable/Other/,file:$HOME/Desktop/,file:$HOME/Downloads/,file:$HOME/Documents/Portable/AppImages/
+detailViewIconSize=16
+
+[KPropertiesDialog]
+DP-4 Height 1920x1080=458
+DP-4 Height 1920x1080 DP-4=458
+DP-4 Width 1920x1080=406
+DP-4 Width 1920x1080 DP-4=310
+
+[MainWindow]
+DP-2=DP-2
+DP-2 XPosition 1920x1080 DP-2=450
+DP-2 YPosition 1920x1080 DP-2=186
+DP-4=DP-4
+DP-4 HDMI-0 XPosition 1920x1080=450
+DP-4 HDMI-0 YPosition 1920x1080=184
+DP-4 Height 1920x1080=700
+DP-4 Height 1920x1080 DP-4=806
+DP-4 Width 1920x1080=1882
+DP-4 Width 1920x1080 DP-4=1469
+DP-4 Window-Maximized 1920x1080=true
+DP-4 Window-Maximized 1920x1080 DP-4=true
+DP-4 XPosition 1920x1080=0
+DP-4 XPosition 1920x1080 DP-4=238
+DP-4 YPosition 1920x1080=25
+DP-4 YPosition 1920x1080 DP-4=113
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAAB4AAAAP7AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+
+[Notification Messages]
+copyCertificatesDialog=true
+
+[Open-with settings]
+CompletionMode=1
+History=xmousepasteblock,f,picom,pic,/usr/bin/xmodmap,xmodmap,kitty,flame,flam,gwe
+
+[systemsettings_sidebar_mode]
+HighlightNonDefaultSettings=false

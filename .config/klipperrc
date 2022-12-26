@@ -1,0 +1,8 @@
+[Actions]
+EnableMagicMimeActions=false
+
+[General]
+IgnoreImages=false
+NoEmptyClipboard=false
+PopupInfoMessageShown=false
+Version=5.26.3
