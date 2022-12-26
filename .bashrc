@@ -23,7 +23,12 @@ echo
 '
 alias nim='nvim'
 alias btw='neofetch'
-alias orphankiller='paru -Qtdq | paru -Rns - '
+alias orphankiller='
+if [ -x "$(command -v apt)" ]; then doas apt autoremove
+elif [ -x "$(command -v pacman)" ]; then paru -Qtdq | paru -Rns - 
+elif [ -x "$(command -v emerge)" ]; then doas emerge --clean
+else echo "Cannot figure out how to remove orphans on this OS.">&2; fi
+'
 alias findproc='ps aux | grep -i'
 alias killde='kquitapp5 plasmashell && kstart5 plasmashell'
 alias 0x0="curl -F 'file=@-' 0x0.st"
