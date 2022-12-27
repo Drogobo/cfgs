@@ -1,6 +1,6 @@
 #!/bin/bash
 # This is the meta-installation script for my configs. Edit it if you like, and PR it if you think your modification is good.
-# There is currently no other distros supported besides arch, so add that and PR the the repo if you can.
+# This supports 3 distros currently. Debian, Arch, and Gentoo. Do not create issues if you are not using DEBIAN, ARCH, OR GENTOO. You can PR my repo with a modification of this script but with support for another distro. However, I do NOT want whining about how this doesn't work on xyz distro.
 
 COLOR='\033[0;32m'
 NOCOLOR='\033[0m'
