@@ -26,7 +26,7 @@ echo -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
 sudo cp -v -r paru.conf doas.conf pacman.conf /etc/
 sudo cp -v bashrc /etc/bash/bashrc
 sudo cp -v bashrc /etc/bash.bashrc
-cp -v -r .config/ .bashrc .gtkrc-2.0 ~/
+cp -v -r .config/ .bashrc ~/
 echo -e "${COLOR}Do a quick update to finalize.${NOCOLOR}"
 if [ -x "$(command -v apt)" ]; then doas apt update && doas apt upgrade
 elif [ -x "$(command -v pacman)" ]; then paru -Syu
