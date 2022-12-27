@@ -1,0 +1,24 @@
+[$Version]
+update_info=delete_cursor_old_default_size.upd:DeleteCursorOldDefaultSize,kcminputrc_fix_botched_5_21_0.upd:kcminputrc_fix_botched_5_21_0_pre,kcminputrc_fix_botched_5_21_0.upd:kcminputrc_fix_botched_5_21_0,kcminputrc_repeat.upd:kcminputrc_migrate_key_repeat
+
+[Keyboard]
+RepeatDelay=300
+RepeatRate=50
+
+[Libinput][1133][49291][Logitech G502 HERO SE]
+PointerAcceleration=0.000
+PointerAccelerationProfile=1
+
+[Libinput][1133][49983][Logitech G815 RGB MECHANICAL GAMING KEYBOARD Mouse]
+PointerAcceleration=0.800
+PointerAccelerationProfile=1
+ScrollFactor=4
+
+[Mouse]
+X11LibInputXAccelProfileFlat=false
+XLbInptAccelProfileFlat=true
+XLbInptPointerAcceleration=0
+cursorTheme=breeze_cursors
+
+[Tmp]
+update_info=delete_cursor_old_default_size.upd:DeleteCursorOldDefaultSize
