@@ -9,6 +9,7 @@ PS1='[\u@\h \W]\$ '
 #. "$HOME/.cargo/env"
 export PATH="$HOME/.cargo/bin/:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
+export HOME=/home/$USER
 
 # ALIASES
 
@@ -46,5 +47,3 @@ parse_git_branch() {
 
 # Color
 export PS1="\[\e[31m\][\[\e[m\]\[\e[33m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[36m\]\h\[\e[m\] \[\e[35m\]\w\\[\033[33m\]\$(parse_git_branch)\[\e[m\]\[\e[31m\]]\[\e[m\]$ "
-# This one goes out to my gentoo homies
-cd ~
