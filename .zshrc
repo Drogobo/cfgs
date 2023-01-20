@@ -1,7 +1,17 @@
-# ~/.bashrc
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/lra/.zshrc'
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# start of regular config
 
 alias ls='ls --color=auto -a'
 export EDITOR=nvim
@@ -45,5 +55,6 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
-# Color
-export PS1="\[\e[31m\][\[\e[m\]\[\e[33m\]\u\[\e[m\]\[\e[32m\]@\[\e[m\]\[\e[36m\]\h\[\e[m\] \[\e[35m\]\w\\[\033[33m\]\$(parse_git_branch)\[\e[m\]\[\e[31m\]]\[\e[m\]$ "
+# set shell colors
+autoload -U colors && colors
+PS1="%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%m %{$fg[magenta]%}%~%{$fg[yellow]%}$(parse_git_branch)%{$fg[red]%}]%{$reset_color%}$ "
