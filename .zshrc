@@ -2,10 +2,13 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/lra/.zshrc'
+
+bindkey -e
+bindkey ";5C" forward-word
+bindkey ";5D" backward-word
 
 autoload -Uz compinit
 compinit
