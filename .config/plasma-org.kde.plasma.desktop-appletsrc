@@ -131,6 +131,8 @@ PreloadWeight=0
 AppletOrder=41;5;7;18;30
 
 [Containments][29]
+ItemGeometries-1920x1080=
+ItemGeometriesHorizontal=
 activityId=29588b0e-803f-4641-b10c-d5426a65403b
 formfactor=0
 immutability=1
@@ -283,9 +285,12 @@ hiddenItems=Discover Notifier_org.kde.DiscoverNotifier
 knownItems=org.kde.plasma.clipboard,org.kde.plasma.networkmanagement,org.kde.plasma.devicenotifier,org.kde.plasma.keyboardindicator,org.kde.plasma.mediacontroller,org.kde.plasma.nightcolorcontrol,org.kde.plasma.keyboardlayout,org.kde.plasma.vault,org.kde.plasma.notifications,org.kde.plasma.volume,org.kde.plasma.battery,org.kde.plasma.manage-inputmethod,org.kde.plasma.bluetooth
 shownItems=org.kde.plasma.volume,org.kde.plasma.devicenotifier,org.kde.plasma.nightcolorcontrol,org.kde.plasma.clipboard
 
+[Containments1Appletsts][42][Configuration][General]
+showBcdFormat=true
+
 [Containments2Appletsts][5][Configuration][General]
 launchers=applications:systemsettings.desktop,applications:org.kde.discover.desktop,applications:qalculate-gtk.desktop,applications:kitty.desktop,applications:thunderbird.desktop,preferred://filemanager,applications:firefox.desktop,file:///usr/share/applications/discord.desktop,applications:discord-canary.desktop,applications:steam.desktop
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:0-steam.desktop,0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:0-Synthesia.desktop,0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:0-Remove-unused-packages.sh,0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:0-JumpCutter.desktop,0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:0-com.valvesoftware.Steam.desktop (1),0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:0-log.txt,0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:0-JumpCutter.desktop (3),0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:/Remove-unused-packages.sh,0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:0-Steam.desktop,0,29588b0e-803f-4641-b10c-d5426a65403b
+screenMapping=desktop:0-log.txt,0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:0-JumpCutter.desktop,0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:0-Steam.desktop,0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:0-com.valvesoftware.Steam.desktop (1),0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:0-JumpCutter.desktop (3),0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:/Remove-unused-packages.sh,0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:0-Remove-unused-packages.sh,0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:0-steam.desktop,0,29588b0e-803f-4641-b10c-d5426a65403b,desktop:0-Synthesia.desktop,0,29588b0e-803f-4641-b10c-d5426a65403b
