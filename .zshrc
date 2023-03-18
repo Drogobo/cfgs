@@ -7,8 +7,8 @@ SAVEHIST=1000
 zstyle :compinstall filename '~/.zshrc'
 
 bindkey -e
-bindkey ";5C" forward-word
-bindkey ";5D" backward-word
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
 
 autoload -Uz compinit
 compinit
