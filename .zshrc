@@ -6,7 +6,7 @@ SAVEHIST=1000
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
 
-bindkey -e
+bindkey -v
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
