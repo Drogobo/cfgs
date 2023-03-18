@@ -9,6 +9,7 @@ zstyle :compinstall filename '~/.zshrc'
 bindkey -v
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+bindkey "^H" backward-kill-word
 
 autoload -Uz compinit
 compinit
