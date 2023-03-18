@@ -24,6 +24,7 @@ set backupdir=~/.cache/vim  " Directory to store backup files.
 filetype plugin indent on   " Indents or sthing idk 
 set splitbelow splitright   " Split opens at the bottom right
 set completeopt=menu,menuone,noselect   " Auto completion stuff
+inoremap <C-Backspace> <C-o>db
 " Plugins
 call plug#begin()
 Plug 'ap/vim-css-color'
