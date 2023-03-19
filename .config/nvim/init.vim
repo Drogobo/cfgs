@@ -23,7 +23,7 @@ set backupdir=~/.cache/vim	" Directory to store backup files.
 filetype plugin indent on	" Indents or sthing idk 
 set splitbelow splitright	" Split opens at the bottom right
 set completeopt=menu,menuone,noselect	" Auto completion stuff
-
+set backspace=indent,eol,start
 " FUN
 function! GetUserInput()
 	:set noexpandtab
@@ -32,7 +32,7 @@ function! GetUserInput()
 endfunction
 
 " Cool Binds
-inoremap <C-Backspace> <C-o>db
+imap <C-BS> <C-W>
 nnoremap <F2> :call GetUserInput()<CR>
 
 " Plugins
