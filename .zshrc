@@ -36,7 +36,7 @@ flatpak update
 nvim --headless +PlugInstall +PlugUpdate +qa
 echo
 '
-alias v='nvim'
+alias n='nvim'
 alias btw='neofetch'
 alias orphankiller='
 if [ -x "$(command -v apt)" ]; then doas apt autoremove
