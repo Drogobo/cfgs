@@ -17,7 +17,7 @@ set clipboard=unnamedplus	" using system clipboard
 filetype plugin on		" For plugs
 set cursorline			" highlight current cursorline
 " set spell			" enable spell check (may need to download language package)
-set noswapfile			" disable creating swap file
+set swapfile			" create swapfiles
 set encoding=utf-8		" Encode with utf8
 set backupdir=~/.cache/vim	" Directory to store backup files.
 filetype plugin indent on	" Indents or sthing idk 
