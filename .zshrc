@@ -37,6 +37,7 @@ nvim --headless +PlugInstall +PlugUpdate +qa
 echo
 '
 alias n='nvim'
+alias p='paru'
 alias btw='neofetch'
 alias orphankiller='
 if [ -x "$(command -v apt)" ]; then doas apt autoremove
