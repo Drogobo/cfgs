@@ -29,7 +29,6 @@ sudo cp -v bashrc /etc/bash.bashrc
 cp -v -r .config/ .bashrc .zshrc ~/
 echo -e "${COLOR}Change the shell to zsh.${NOCOLOR}"
 chsh -s /bin/zsh
-sudo ln -sf zsh /bin/sh
 echo -e "${COLOR}Do a quick update to finalize.${NOCOLOR}"
 if [ -x "$(command -v apt)" ]; then doas apt update && doas apt upgrade
 elif [ -x "$(command -v pacman)" ]; then paru -Syu
