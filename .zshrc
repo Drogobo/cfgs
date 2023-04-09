@@ -32,7 +32,7 @@ zstyle ':omz:update' frequency 7
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -79,7 +79,7 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# export ARCHFLAGS="-arch x87_64"
 
 # HISTORY
 HISTFILE=~/.histfile
@@ -92,6 +92,9 @@ bindkey -v
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 bindkey "^H" backward-kill-word
+bindkey '^ ' autosuggest-accept
+bindkey '^\' autosuggest-disable
+bindkey '^[\' autosuggest-enable
 autoload -Uz compinit
 compinit
 
