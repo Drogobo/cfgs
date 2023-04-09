@@ -22,11 +22,12 @@ rm -rf paru-bin/
 echo -e "${COLOR}Install more crap but from the AUR.${NOCOLOR}"
 paru -S --needed ttf-hack ttf-twemoji adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts ttf-ubraille qalculate-gtk
 else echo -e "${COLOR}Skipping AUR packages because you are not on arch.${NOCOLOR}">&2; fi
-cho -e "${COLOR}Change the shell to zsh.${NOCOLOR}"
+echo -e "${COLOR}Change the shell to zsh.${NOCOLOR}"
+export RUNZSH=no
 chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-eecho -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
+echo -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
 sudo cp -v -r paru.conf doas.conf pacman.conf /etc/
 sudo cp -v bashrc /etc/bash/bashrc
 sudo cp -v bashrc /etc/bash.bashrc
