@@ -22,13 +22,15 @@ rm -rf paru-bin/
 echo -e "${COLOR}Install more crap but from the AUR.${NOCOLOR}"
 paru -S --needed ttf-hack ttf-twemoji adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts ttf-ubraille qalculate-gtk
 else echo -e "${COLOR}Skipping AUR packages because you are not on arch.${NOCOLOR}">&2; fi
-echo -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
+cho -e "${COLOR}Change the shell to zsh.${NOCOLOR}"
+chsh -s /bin/zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+eecho -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
 sudo cp -v -r paru.conf doas.conf pacman.conf /etc/
 sudo cp -v bashrc /etc/bash/bashrc
 sudo cp -v bashrc /etc/bash.bashrc
-cp -v -r .config/ .bashrc .zshrc ~/
-echo -e "${COLOR}Change the shell to zsh.${NOCOLOR}"
-chsh -s /bin/zsh
+cp -v -r .config/ .bashrc .oh-my-zsh/ .zshrc ~/
 echo -e "${COLOR}Do a quick update to finalize.${NOCOLOR}"
 if [ -x "$(command -v apt)" ]; then doas apt update && doas apt upgrade
 elif [ -x "$(command -v pacman)" ]; then paru -Syu
