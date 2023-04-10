@@ -4,13 +4,17 @@
 
 COLOR='\033[0;32m'
 NOCOLOR='\033[0m'
+
+# SOFTWARE INSTALL
 echo -e "${COLOR}Install software for my configs.${NOCOLOR}"
-if [ -x "$(command -v apt-get)" ]; then sudo apt-get -y install doas flatpak neovim kitty xorg kde-standard git curl rust-all python neofetch fonts-hack fuse libfuse2 qalculate zsh zplug
-elif [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty plasma-desktop xorg neofetch flatpak doas git base-devel python-pip luajit curl qalculate-gtk zsh zsh-completions && sudo chmod u+s "$(which fusermount)"
-elif [ -x "$(command -v emerge)" ]; then sudo emerge -a app-editors/neovim dev-lang/rust-bin sys-apps/flatpak x11-terms/kitty app-admin/doas dev-vcs/git app-misc/neofetch net-misc/curl dev-python/pip media-fonts/hack kde-plasma/plasma-meta sys-fs/fuse:0 kde-plasma/plasma-pa kde-plasma/breeze-gtk sci-calculators/qalculate-gtk sys-kernel/genkernel app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions x11-misc/xclip
+if [ -x "$(command -v apt-get)" ]; then echo "deb http://deb.debian.org/debian bullseye-backports main contrib non-free" | sudo tee -a /etc/apt/sources.list && sudo apt update && sudo apt-get -y install doas flatpak neovim kitty xorg kde-standard git curl python3.9 neofetch lua5.4 fonts-hack fuse libfuse2 zsh zplug && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+elif [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty plasma-desktop xorg neofetch flatpak doas git base-devel python-pip luajit curl zsh zsh-completions && sudo chmod u+s "$(which fusermount)"
+elif [ -x "$(command -v emerge)" ]; then sudo emerge -a app-editors/neovim dev-lang/rust-bin sys-apps/flatpak x11-terms/kitty app-admin/doas dev-vcs/git app-misc/neofetch net-misc/curl dev-python/pip media-fonts/hack kde-plasma/plasma-meta sys-fs/fuse:0 kde-plasma/plasma-pa kde-plasma/breeze-gtk sys-kernel/genkernel app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions x11-misc/xclip
 else echo "Cannot figure out how to insatll software on whatever this OS is.">&2; fi
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 pip3 install --user neovim
+
+# ARCH SPECIFIC
 if [ -x "$(command -v pacman)" ]; then
 echo -e "${COLOR}Installing paru-bin from the AUR.${NOCOLOR}"
 mkdir paru-bin
@@ -22,16 +26,22 @@ rm -rf paru-bin/
 echo -e "${COLOR}Install more crap but from the AUR.${NOCOLOR}"
 paru -S --needed ttf-hack ttf-twemoji adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts ttf-ubraille qalculate-gtk
 else echo -e "${COLOR}Skipping AUR packages because you are not on arch.${NOCOLOR}">&2; fi
+
+# ZSH
 echo -e "${COLOR}Change the shell to zsh.${NOCOLOR}"
 export RUNZSH=no
 chsh -s /bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# COPY CONFIGS
 echo -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
 sudo cp -v -r paru.conf doas.conf pacman.conf /etc/
 sudo cp -v bashrc /etc/bash/bashrc
 sudo cp -v bashrc /etc/bash.bashrc
 cp -v -r .config/ .bashrc .oh-my-zsh/ .zshrc ~/
+
+# UPDATE SYSTEM
 echo -e "${COLOR}Do a quick update to finalize.${NOCOLOR}"
 if [ -x "$(command -v apt)" ]; then doas apt update && doas apt upgrade
 elif [ -x "$(command -v pacman)" ]; then paru -Syu
@@ -40,4 +50,6 @@ else echo "Cannot figure out how to update on whatever this OS is.">&2; fi
 flatpak update
 nvim --headless +PlugInstall +PlugUpdate +qa
 echo
+
+# SPECIAL MESSAGE
 echo -e "${COLOR}I also included a bonus wallpaper! It is in the same dir as this script. If you want to use it, it is called 'Woods.jpg'. You might want to reboot before doing anything, so you don't accidentally break something.${NOCOLOR}"
