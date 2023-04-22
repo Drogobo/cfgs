@@ -34,6 +34,7 @@ endfunction
 " Cool Binds
 imap <C-BS> <C-W>
 nnoremap <F2> :call GetUserInput()<CR>
+nnoremap <F3> :noh<CR>
 
 " Plugins
 call plug#begin()

@@ -55,9 +55,11 @@ fi
 
 # COPY CONFIGS
 echo -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
+mkdir -p ~/.config/dwm
 sudo cp -v -r paru.conf doas.conf pacman.conf /etc/
 sudo cp -v bashrc /etc/bash/bashrc
 sudo cp -v bashrc /etc/bash.bashrc
+sudo cp -v suckless/dwm.desktop /usr/share/xsessions/dwm.desktop
 cp -v -r .config/ .oh-my-zsh/ .zshrc ~/
 
 if ! $copyonly; then
