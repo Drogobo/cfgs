@@ -58,7 +58,7 @@ echo -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
 sudo cp -v -r paru.conf doas.conf pacman.conf /etc/
 sudo cp -v bashrc /etc/bash/bashrc
 sudo cp -v bashrc /etc/bash.bashrc
-cp -v -r .config/ .bashrc .oh-my-zsh/ .zshrc ~/
+cp -v -r .config/ .oh-my-zsh/ .zshrc ~/
 
 if ! $copyonly; then
 # UPDATE SYSTEM
