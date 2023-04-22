@@ -3,12 +3,12 @@
 # This supports 2 distros currently: Arch and Gentoo. Do not create issues if you are not using ARCH OR GENTOO. You can PR my repo with a modification of this script but with support for another distro. However, I do NOT want whining about how this doesn't work on xyz distro.
 
 # SET UP FLAGS
-symlink=false
 install=true
-while getopts 'sx' OPTION; do
+copyonly=false
+while getopts 'xc' OPTION; do
 	case "$OPTION" in
-		s)  symlink=true;;
 		x)  install=false;;
+		c)  copyonly=true; install=false;;
 	esac
 done
 
@@ -42,31 +42,37 @@ else
 	echo -e "${COLOR}Skipping software install.${NOCOLOR}"
 fi
 
-# ZSH
-echo -e "${COLOR}Change the shell to zsh.${NOCOLOR}"
-export RUNZSH=no
-chsh -s /bin/zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+if ! $copyonly; then
+	# ZSH
+	echo -e "${COLOR}Change the shell to zsh.${NOCOLOR}"
+	export RUNZSH=no
+	chsh -s /bin/zsh
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+else
+	echo -e "${COLOR}Skipping zsh install.${NOCOLOR}"
+fi
 
 # COPY CONFIGS
-if 
 echo -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
 sudo cp -v -r paru.conf doas.conf pacman.conf /etc/
 sudo cp -v bashrc /etc/bash/bashrc
 sudo cp -v bashrc /etc/bash.bashrc
 cp -v -r .config/ .bashrc .oh-my-zsh/ .zshrc ~/
 
-
+if ! $copyonly; then
 # UPDATE SYSTEM
-echo -e "${COLOR}Do a quick update to finalize.${NOCOLOR}"
-if [ -x "$(command -v apt)" ]; then doas apt update && doas apt upgrade
-elif [ -x "$(command -v pacman)" ]; then paru -Syu
-elif [ -x "$(command -v emerge)" ]; then doas emaint -a sync && doas emerge --ask --verbose --update --deep --changed-use @world
-else echo "Cannot figure out how to update on whatever this OS is."; fi
-flatpak update
-nvim --headless +PlugInstall +PlugUpdate +qa
-echo
+	echo -e "${COLOR}Do a quick update to finalize.${NOCOLOR}"
+	if [ -x "$(command -v apt)" ]; then doas apt update && doas apt upgrade
+	elif [ -x "$(command -v pacman)" ]; then paru -Syu
+	elif [ -x "$(command -v emerge)" ]; then doas emaint -a sync && doas emerge --ask --verbose --update --deep --changed-use @world
+	else echo "Cannot figure out how to update on whatever this OS is."; fi
+	flatpak update
+	nvim --headless +PlugInstall +PlugUpdate +qa
+	echo
+else
+	echo -e "${COLOR}Skipping update.${NOCOLOR}"
+fi
 
 # SPECIAL MESSAGE
 echo -e "${COLOR}I also included a bonus wallpaper! It is in the same dir as this script. If you want to use it, it is called 'Woods.jpg'. You might want to reboot before doing anything, so you don't accidentally break something.${NOCOLOR}"
