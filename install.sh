@@ -5,10 +5,12 @@
 # SET UP FLAGS
 install=true
 copyonly=false
-while getopts 'xc' OPTION; do
+suckless=false
+while getopts 'xcs' OPTION; do
 	case "$OPTION" in
 		x)  install=false;;
 		c)  copyonly=true; install=false;;
+		s)  suckless=true;;
 	esac
 done
 
@@ -18,8 +20,8 @@ NOCOLOR='\033[0m'
 # SOFTWARE INSTALL
 if $install; then
 	echo -e "${COLOR}Install software for my configs.${NOCOLOR}"
-	if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty plasma-desktop xorg neofetch flatpak doas git base-devel python-pip luajit curl zsh zsh-completions && sudo chmod u+s "$(which fusermount)"
-	elif [ -x "$(command -v emerge)" ]; then sudo emerge -a app-editors/neovim dev-lang/rust-bin sys-apps/flatpak x11-terms/kitty app-admin/doas dev-vcs/git app-misc/neofetch net-misc/curl dev-python/pip media-fonts/hack kde-plasma/plasma-meta sys-fs/fuse:0 kde-plasma/plasma-pa kde-plasma/breeze-gtk sys-kernel/genkernel app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions x11-misc/xclip
+	if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty plasma-desktop xorg neofetch flatpak doas git base-devel python-pip luajit curl zsh zsh-completions xcb-util-cursor redshift xorg-xmodmap picom xorg-setxkbmap feh && sudo chmod u+s "$(which fusermount)"
+	elif [ -x "$(command -v emerge)" ]; then sudo emerge -a app-editors/neovim dev-lang/rust-bin sys-apps/flatpak x11-terms/kitty app-admin/doas dev-vcs/git app-misc/neofetch net-misc/curl dev-python/pip media-fonts/hack kde-plasma/plasma-meta sys-fs/fuse:0 kde-plasma/plasma-pa kde-plasma/breeze-gtk sys-kernel/genkernel app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions x11-misc/xclip x11-libs/xcb-util-cursor x11-misc/redshift x11-misc/picom x11-apps/xmodmap x11-apps/setxkbmap media-gfx/feh
 	else echo "${COLOR}Cannot figure out how to insatll software on whatever this OS is.${NOCOLOR}"; fi
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	pip3 install --user neovim
@@ -55,12 +57,27 @@ fi
 
 # COPY CONFIGS
 echo -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
-mkdir -p ~/.config/dwm
 sudo cp -v -r paru.conf doas.conf pacman.conf /etc/
 sudo cp -v bashrc /etc/bash/bashrc
 sudo cp -v bashrc /etc/bash.bashrc
-sudo cp -v suckless/dwm.desktop /usr/share/xsessions/dwm.desktop
 cp -v -r .config/ .oh-my-zsh/ .zshrc ~/
+mkdir ~/Pictures
+cp -v Woods.jpg ~/Pictures/
+
+# SUCKLESS STUFF
+if $suckless; then
+	mkdir -p ~/.config/dwm/
+	sudo cp -v suckless/dwm.desktop /usr/share/xsessions/dwm.desktop
+	sudo cp -v suckless/index.theme /usr/share/icons/default/index.theme
+	cp -v suckless/dwm/* ~/.config/dwm/
+	cd suckless/dwm-src/
+	sudo make clean install
+	cd ../dmenu-src/
+	sudo make clean install
+	cd ../..
+else
+	echo -e "${COLOR}Skipping suckless install.${NOCOLOR}"
+fi
 
 if ! $copyonly; then
 # UPDATE SYSTEM
@@ -77,4 +94,4 @@ else
 fi
 
 # SPECIAL MESSAGE
-echo -e "${COLOR}I also included a bonus wallpaper! It is in the same dir as this script. If you want to use it, it is called 'Woods.jpg'. You might want to reboot before doing anything, so you don't accidentally break something.${NOCOLOR}"
+echo -e "${COLOR}I also included a bonus wallpaper! It was copied to ~/Pictures. You might want to reboot before doing anything, so you don't accidentally break something.${NOCOLOR}"
