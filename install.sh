@@ -20,12 +20,12 @@ NOCOLOR='\033[0m'
 # SOFTWARE INSTALL
 if $install; then
 	echo -e "${COLOR}Install software for my configs.${NOCOLOR}"
-	if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty plasma-desktop xorg neofetch flatpak doas git base-devel python-pip luajit curl zsh zsh-completions xcb-util-cursor redshift xorg-xmodmap picom xorg-setxkbmap feh && sudo chmod u+s "$(which fusermount)"
-	elif [ -x "$(command -v emerge)" ]; then sudo emerge -a app-editors/neovim dev-lang/rust-bin sys-apps/flatpak x11-terms/kitty app-admin/doas dev-vcs/git app-misc/neofetch net-misc/curl dev-python/pip media-fonts/hack kde-plasma/plasma-meta sys-fs/fuse:0 kde-plasma/plasma-pa kde-plasma/breeze-gtk sys-kernel/genkernel app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions x11-misc/xclip x11-libs/xcb-util-cursor x11-misc/redshift x11-misc/picom x11-apps/xmodmap x11-apps/setxkbmap media-gfx/feh
+	if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty plasma-desktop xorg neofetch flatpak doas git base-devel python-pip luajit curl zsh zsh-completions xcb-util-cursor redshift xorg-xmodmap picom xorg-setxkbmap feh libxcb ttf-hack && sudo chmod u+s "$(which fusermount)"
+	elif [ -x "$(command -v emerge)" ]; then sudo emerge -a app-editors/neovim dev-lang/rust-bin sys-apps/flatpak x11-terms/kitty app-admin/doas dev-vcs/git app-misc/neofetch net-misc/curl dev-python/pip media-fonts/hack kde-plasma/plasma-meta sys-fs/fuse:0 kde-plasma/plasma-pa kde-plasma/breeze-gtk sys-kernel/genkernel app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions x11-misc/xclip x11-libs/xcb-util-cursor x11-misc/redshift x11-misc/picom x11-apps/xmodmap x11-apps/setxkbmap media-gfx/feh x11-libs/libxcb
 	else echo "${COLOR}Cannot figure out how to insatll software on whatever this OS is.${NOCOLOR}"; fi
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	pip3 install --user neovim
-
+	
 	# ARCH SPECIFIC
 	if [ -x "$(command -v pacman)" ]; then
 		echo -e "${COLOR}Installing paru-bin from the AUR.${NOCOLOR}"
@@ -36,7 +36,7 @@ if $install; then
 		cd ..
 		rm -rf paru-bin/
 		echo -e "${COLOR}Install more crap but from the AUR.${NOCOLOR}"
-		paru -S --needed ttf-hack ttf-twemoji adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts ttf-ubraille
+		paru -S --needed ttf-twemoji adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts ttf-ubraille
 	else
 		echo -e "${COLOR}Skipping AUR packages because you are not on arch.${NOCOLOR}"
 	fi
@@ -69,10 +69,11 @@ if $suckless; then
 	mkdir -p ~/.config/dwm/
 	sudo cp -v suckless/dwm.desktop /usr/share/xsessions/dwm.desktop
 	sudo cp -v suckless/index.theme /usr/share/icons/default/index.theme
-	cp -v suckless/dwm/* ~/.config/dwm/
 	cd suckless/dwm-src/
 	sudo make clean install
 	cd ../dmenu-src/
+	sudo make clean install
+	cd ../dwmblocks-src
 	sudo make clean install
 	cd ../..
 else

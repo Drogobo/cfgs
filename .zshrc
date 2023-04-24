@@ -101,7 +101,7 @@ compinit
 # WEIRD THINGS THAT AREN'T DEFAULT FOR SOME REASON
 alias ls='ls --color=auto -a'
 #. "$HOME/.cargo/env"
-export PATH="$HOME/.cargo/bin/:$PATH"
+export PATH="$HOME/.cargo/bin/:$HOME/.config/dwm/:$HOME/.config/dwm/statusbar/:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 export HOME=/home/$USER
 

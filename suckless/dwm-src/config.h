@@ -20,6 +20,18 @@ static const char *colors[][3]      = {
 	[SchemeSel]  = { col_gray, col_yellow,  col_yellow  },
 };
 
+static const char *const autostart[] = {
+	"picom", NULL,
+	"redshift", NULL,
+	"xset", "r", "rate", "300", "50", NULL,
+	"setxkbmap", "-option", "caps:swapescape", NULL,
+	"xinput", "set-prop", "'Logitech G502 HERO SE'", "'libinput Accel Profile Enabled'", "0", "1", NULL,
+	"xinput", "set-prop", "'Logitech G502 HERO SE'", "'libinput Accel Speed'", "0", NULL,
+	"feh", "--bg-scale", "~/Pictures/Woods.jpg", NULL,
+	"dwmblocks", NULL,
+	NULL /* terminate */
+};
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -118,4 +130,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-

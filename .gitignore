@@ -1,2 +1,9 @@
 # this is stuff I do not want to push to my repo.
 paru-bin/
+*.orig
+*.rej
+suckless/dwm-src/*.diff
+suckless/dwm-src/util.o
+suckless/dwm-src/dwm
+suckless/dwm-src/dwm.o
+suckless/dwm-src/drw.o
