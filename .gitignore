@@ -3,6 +3,10 @@ paru-bin/
 *.orig
 *.rej
 *.diff
+# dwm gitignored
+suckless/dwm-src/dwm
+suckless/dmenu-src/dmenu
+suckless/dwmblocks-src/dwmblocks
 # C gitignore
 # Prerequisites
 *.d
