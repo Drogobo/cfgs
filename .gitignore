@@ -2,7 +2,7 @@
 paru-bin/
 *.orig
 *.rej
-suckless/dwm-src/*.diff
+*.diff
 suckless/dwm-src/util.o
 suckless/dwm-src/dwm
 suckless/dwm-src/dwm.o
