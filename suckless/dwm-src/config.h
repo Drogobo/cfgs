@@ -22,16 +22,13 @@ static const char *colors[][3]      = {
 };
 
 static const char *const autostart[] = {
+	"xset", "r", "rate", "300", "50", NULL,
+	"setxkbmap", "-option", "compose:rctrl", NULL,	
 	"picom", NULL,
 	"redshift", NULL,
-	"xset", "r", "rate", "300", "50", NULL,
+	"feh", "--bg-scale", "/home/lra/Pictures/Woods.jpg", NULL,
+	"dwmblocks", NULL,
 	"setxkbmap", "-option", "caps:swapescape", NULL,
-	"setxkbmap", "-option", "compose:rctrl", NULL,
-	"xinput", "set-prop", "'Logitech G502 HERO SE'", "'libinput Accel Profile Enabled'", "0", "1", NULL,
-	"xinput", "set-prop", "'Logitech G502 HERO SE'", "'libinput Accel Speed'", "0", NULL,
-	"feh", "--bg-scale", "~/Pictures/Woods.jpg", NULL,
-	"dwmblocks", NULL,
-	"dwmblocks", NULL,
 	NULL /* terminate */
 };
 
@@ -44,7 +41,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
+	{ "Gimp",    NULL,     NULL,           0,         0,          0,           0,        -1 },
 	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
 	{ "kitty",   NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
@@ -77,11 +74,13 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray, "-nf", col_white, "-sb", col_yellow, "-sf", col_gray, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
+static const char *screenshot[] = { "flameshot", "gui", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,		        XK_Return, spawn,          {.v = termcmd } },
+	{ 0,	           	        XK_Print,  spawn,          {.v = screenshot } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -89,7 +88,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
+	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },

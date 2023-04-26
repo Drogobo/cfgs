@@ -20,8 +20,8 @@ NOCOLOR='\033[0m'
 # SOFTWARE INSTALL
 if $install; then
 	echo -e "${COLOR}Install software for my configs.${NOCOLOR}"
-	if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty plasma-desktop xorg neofetch flatpak doas git base-devel python-pip luajit curl zsh zsh-completions xcb-util-cursor redshift xorg-xmodmap picom xorg-setxkbmap feh libxcb ttf-hack && sudo chmod u+s "$(which fusermount)"
-	elif [ -x "$(command -v emerge)" ]; then sudo emerge -a app-editors/neovim dev-lang/rust-bin sys-apps/flatpak x11-terms/kitty app-admin/doas dev-vcs/git app-misc/neofetch net-misc/curl dev-python/pip media-fonts/hack kde-plasma/plasma-meta sys-fs/fuse:0 kde-plasma/plasma-pa kde-plasma/breeze-gtk sys-kernel/genkernel app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions x11-misc/xclip x11-libs/xcb-util-cursor x11-misc/redshift x11-misc/picom x11-apps/xmodmap x11-apps/setxkbmap media-gfx/feh x11-libs/libxcb
+	if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty plasma-desktop xorg neofetch flatpak doas git base-devel python-pip luajit curl zsh zsh-completions xcb-util-cursor redshift xorg-xmodmap picom xorg-setxkbmap feh libxcb flameshot ttf-hack && sudo chmod u+s "$(which fusermount)"
+	elif [ -x "$(command -v emerge)" ]; then sudo emerge -a app-editors/neovim dev-lang/rust-bin sys-apps/flatpak x11-terms/kitty app-admin/doas dev-vcs/git app-misc/neofetch net-misc/curl dev-python/pip media-fonts/hack kde-plasma/plasma-meta sys-fs/fuse:0 kde-plasma/plasma-pa kde-plasma/breeze-gtk sys-kernel/genkernel app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions x11-misc/xclip x11-libs/xcb-util-cursor x11-misc/redshift x11-misc/picom x11-apps/xmodmap x11-apps/setxkbmap media-gfx/feh x11-libs/libxcb media-gfx/flameshot
 	else echo "${COLOR}Cannot figure out how to insatll software on whatever this OS is.${NOCOLOR}"; fi
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	pip3 install --user neovim
@@ -55,15 +55,6 @@ else
 	echo -e "${COLOR}Skipping zsh install.${NOCOLOR}"
 fi
 
-# COPY CONFIGS
-echo -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
-sudo cp -v -r paru.conf doas.conf pacman.conf /etc/
-sudo cp -v bashrc /etc/bash/bashrc
-sudo cp -v bashrc /etc/bash.bashrc
-cp -v -r .config/ .oh-my-zsh/ .zshrc ~/
-mkdir ~/Pictures
-cp -v Woods.jpg ~/Pictures/
-
 # SUCKLESS STUFF
 if $suckless; then
 	mkdir -p ~/.config/dwm/
@@ -73,12 +64,21 @@ if $suckless; then
 	sudo make clean install
 	cd ../dmenu-src/
 	sudo make clean install
-	cd ../dwmblocks-src
+	cd ../dwmblocks-src/
 	sudo make clean install
 	cd ../..
 else
 	echo -e "${COLOR}Skipping suckless install.${NOCOLOR}"
 fi
+
+# COPY CONFIGS
+echo -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
+sudo cp -v -r paru.conf doas.conf pacman.conf /etc/
+sudo cp -v bashrc /etc/bash/bashrc
+sudo cp -v bashrc /etc/bash.bashrc
+cp -v -r .config/ .oh-my-zsh/ .zshrc ~/
+mkdir ~/Pictures
+cp -v Woods.jpg ~/Pictures/
 
 if ! $copyonly; then
 # UPDATE SYSTEM
