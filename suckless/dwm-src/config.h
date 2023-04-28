@@ -75,13 +75,15 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray, "-nf", col_white, "-sb", col_yellow, "-sf", col_gray, NULL };
 static const char *termcmd[]  = { "kitty", NULL };
-static const char *screenshot[] = { "flameshot", "gui", NULL};
+static const char *screenshotcmd[] = { "flameshot", "gui", NULL};
+static const char *thunarcmd[] = { "thunar", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,		        XK_Return, spawn,          {.v = termcmd } },
-	{ 0,	           	        XK_Print,  spawn,          {.v = screenshot } },
+	{ MODKEY,		        XK_t,      spawn,          {.v = thunarcmd } },
+	{ 0,	           	        XK_Print,  spawn,          {.v = screenshotcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
