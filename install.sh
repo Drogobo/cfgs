@@ -67,6 +67,10 @@ if $suckless; then
 	cd ../dwmblocks-src/
 	sudo make clean install
 	cd ../..
+	git clone https://codeberg.org/Drogobo/x-disable-middle-click-paste.git
+	cd x-disable-middle-click-paste/
+	make && sudo make install
+	cd .. && rm -rf x-disable-middle-click-paste/
 else
 	echo -e "${COLOR}Skipping suckless install.${NOCOLOR}"
 fi

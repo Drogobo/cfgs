@@ -26,6 +26,7 @@ static const char *const autostart[] = {
 	"setxkbmap", "-option", "compose:rctrl", NULL,	
 	"picom", NULL,
 	"redshift", NULL,
+	"xdisablemiddleclickpaste", NULL,
 	"feh", "--bg-scale", "/home/lra/Pictures/Woods.jpg", NULL,
 	"dwmblocks", NULL,
 	"setxkbmap", "-option", "caps:swapescape", NULL,
