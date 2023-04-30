@@ -28,7 +28,7 @@ static const char *const autostart[] = {
 	"xdisablemiddleclickpaste", NULL,
 	"feh", "--bg-scale", "/home/lra/Pictures/Woods.jpg", NULL,
 	"dwmblocks", NULL,
-	"setxkbmap", "-option", "compose:rctrl", "-option", "caps:swapescape", NULL,
+	"setxkbmap", "-layout", "us", "altgr-intl", "-option", "compose:rctrl", "-option", "caps:swapescape", NULL,
 	NULL /* terminate */
 };
 
