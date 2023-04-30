@@ -23,13 +23,12 @@ static const char *colors[][3]      = {
 
 static const char *const autostart[] = {
 	"xset", "r", "rate", "300", "50", NULL,
-	"setxkbmap", "-option", "compose:rctrl", NULL,	
 	"picom", NULL,
 	"redshift", NULL,
 	"xdisablemiddleclickpaste", NULL,
 	"feh", "--bg-scale", "/home/lra/Pictures/Woods.jpg", NULL,
 	"dwmblocks", NULL,
-	"setxkbmap", "-option", "caps:swapescape", NULL,
+	"setxkbmap", "-option", "compose:rctrl", "-option", "caps:swapescape", NULL,
 	NULL /* terminate */
 };
 

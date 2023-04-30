@@ -35,6 +35,8 @@ endfunction
 imap <C-BS> <C-W>
 nnoremap <F2> :call GetUserInput()<CR>
 nnoremap <F3> :noh<CR>
+nnoremap <C-H> b
+nnoremap <C-L> w
 
 " Plugins
 call plug#begin()
@@ -42,6 +44,7 @@ Plug 'ap/vim-css-color'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'tpope/vim-surround'
 Plug 'rust-lang/rust.vim'
+Plug 'mattn/emmet-vim'
 Plug 'nvim-treesitter/nvim-treesitter'
 call plug#end()
 
