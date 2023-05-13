@@ -10,7 +10,6 @@ while getopts 'csk' OPTION; do
 	case "$OPTION" in
 		c)  copyonly=true;; 
 		s)  suckless=false;;
-		k)  kde=false;;
 	esac
 done
 
@@ -19,27 +18,20 @@ NOCOLOR='\033[0m'
 
 # CONFORMATION
 if $kde && $suckless && ! $copyonly; then
-echo -e "${COLOR}This program will install KDE, dwm, dmenu, dwmblocks, and a few good utilities with my configs. READ THE SOURCE OF THIS SHELL SCRIPT! You can change what it installs with these flags:${NOCOLOR}"
+echo -e "${COLOR}This program will install dwm, dmenu, dwmblocks, and a few good utilities with my configs. READ THE SOURCE OF THIS SHELL SCRIPT! You can change what it installs with these flags:${NOCOLOR}"
 echo -e "${COLOR}-c to only copy configs${NOCOLOR}"
 echo -e "${COLOR}-s to exclude suckless${NOCOLOR}"
-echo -e "${COLOR}-k to exclude KDE${NOCOLOR}"
 sleep 17
 fi
 
 # SOFTWARE INSTALL
 if ! $copyonly; then
 	echo -e "${COLOR}Install software for my configs.${NOCOLOR}"
-	if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty xorg neofetch flatpak doas git base-devel python-pip luajit curl zsh zsh-completions xcb-util-cursor redshift xorg-xmodmap picom xorg-setxkbmap feh libxcb thunar flameshot ttf-hack && sudo chmod u+s "$(which fusermount)"
-	elif [ -x "$(command -v emerge)" ]; then sudo emerge -a app-editors/neovim dev-lang/rust-bin sys-apps/flatpak x11-terms/kitty app-admin/doas dev-vcs/git app-misc/neofetch net-misc/curl dev-python/pip media-fonts/hack sys-fs/fuse:0 sys-kernel/genkernel app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions x11-misc/xclip x11-libs/xcb-util-cursor x11-misc/redshift x11-misc/picom x11-apps/xmodmap x11-apps/setxkbmap media-gfx/feh x11-libs/libxcb media-gfx/flameshot xfce-base/thunar
+	if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty xorg playerctl pipewire neofetch flatpak doas git base-devel python-pip luajit curl zsh zsh-completions xcb-util-cursor arc-gtk-theme redshift xorg-xmodmap picom xorg-setxkbmap papirus-icon-theme xcursor-vanilla-dmz feh libxcb thunar p7zip flameshot ttf-hack && sudo chmod u+s "$(which fusermount)"
+	elif [ -x "$(command -v emerge)" ]; then sudo emerge -a app-editors/neovim dev-lang/rust-bin sys-apps/flatpak x11-terms/kitty app-admin/doas dev-vcs/git app-misc/neofetch net-misc/curl dev-python/pip media-fonts/hack sys-fs/fuse:0 sys-kernel/genkernel app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions x11-misc/xclip x11-libs/xcb-util-cursor x11-misc/redshift x11-misc/picom x11-apps/xmodmap x11-apps/setxkbmap media-gfx/feh x11-libs/libxcb media-gfx/flameshot xfce-base/thunar media-video/pipewire media-sound/playerctl x11-themes/vanilla-dmz-xcursors x11-themes/papirus-icon-theme x11-themes/arc-theme app-arch/p7zip
 	else echo "${COLOR}Cannot figure out how to insatll software on whatever this OS is.${NOCOLOR}"; fi
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	pip3 install --user neovim
-	if $kde; then
-		echo -e "${COLOR}Installing KDE.${NOCOLOR}"
-		if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed plasma-desktop
-		elif [ -x "$(command -v emerge)" ]; then sudo emerge -a kde-plasma/plasma-meta kde-plasma/plasma-pa kde-plasma/breeze-gtk
-		else echo "${COLOR}Cannot figure out how to insatll software on whatever this OS is.${NOCOLOR}"; fi
-	fi
 	
 	# ARCH SPECIFIC
 	if [ -x "$(command -v pacman)" ]; then
@@ -90,12 +82,26 @@ if $suckless; then
 else
 	echo -e "${COLOR}Skipping suckless install.${NOCOLOR}"
 fi
+# INSTALL NERD FONTS
+if ! $copyonly; then
+	echo -e "${COLOR}Installing hack nerd font.${NOCOLOR}"
+	mkdir hackttf && cd hackttf
+	wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip
+	7z e Hack.zip
+	rm Hack.zip readme.md LICENSE.md
+	sudo cp -r * /usr/share/fonts/TTF/
+	cd ..
+	rm -rf hackttf
+else
+	echo -e "${COLOR}Skipping font install.${NOCOLOR}"
+fi
 
 # COPY CONFIGS
 echo -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
 sudo cp -v -r paru.conf doas.conf pacman.conf /etc/
 sudo cp -v bashrc /etc/bash/bashrc
 sudo cp -v bashrc /etc/bash.bashrc
+sudo cp -v stylish/cursor/index.html /usr/share/icons/default/index.theme
 cp -v -r .config/ .oh-my-zsh/ .zshrc ~/
 mkdir ~/Pictures
 cp -v Woods.jpg ~/Pictures/

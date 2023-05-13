@@ -24,6 +24,7 @@ filetype plugin indent on	" Indents or sthing idk
 set splitbelow splitright	" Split opens at the bottom right
 set completeopt=menu,menuone,noselect	" Auto completion stuff
 set backspace=indent,eol,start
+set termguicolors		"for terminal stuff.
 " FUN
 function! GetUserInput()
 	:set noexpandtab
@@ -40,16 +41,16 @@ nnoremap <C-L> w
 
 " Plugins
 call plug#begin()
-Plug 'ap/vim-css-color'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'tpope/vim-surround'
 Plug 'rust-lang/rust.vim'
 Plug 'mattn/emmet-vim'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'brenoprata10/nvim-highlight-colors'
 call plug#end()
 
 lua << END
-require('lualine').setup {
+require 'lualine'.setup {
 	options = {
 		icons_enabled = true,
 		theme = 'material',
@@ -90,3 +91,4 @@ require('lualine').setup {
 		extensions = {}
 	}
 END
+lua require('nvim-highlight-colors').setup {}

@@ -1,4 +1,6 @@
 /* See LICENSE file for copyright and license details. */
+/* dependency */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -7,8 +9,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack:size=16" };
-static const char dmenufont[]       = "Hack:size=16";
+static const char *fonts[]          = { "Hack Nerd Font:size=16" };
+static const char dmenufont[]       = "Hack Nerd Font:size=16";
 static unsigned int baralpha        = 255;
 static unsigned int borderalpha     = OPAQUE;
 static const char col_gray[]        = "#282a2e";
@@ -33,7 +35,7 @@ static const char *const autostart[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "󰖟", "󰆉", "", "󰲶", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -76,16 +78,30 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray
 static const char *termcmd[]  = { "kitty", NULL };
 static const char *screenshotcmd[] = { "flameshot", "gui", NULL};
 static const char *thunarcmd[] = { "thunar", NULL};
+static const char *volupcmd[]   = { "pactl", "set-sink-volume", "0", "+5%",     NULL };
+static const char *voldowncmd[] = { "pactl", "set-sink-volume", "0", "-5%",     NULL };
+static const char *mutecmd[] = { "pactl", "set-sink-mute",   "0", "toggle",  NULL };
+static const char *playpausecmd[] = { "playerctl", "play-pause", NULL };
+static const char *nextcmd[] = { "playerctl", "next", NULL };
+static const char *prevcmd[] = { "playerctl", "previous", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ 0, XF86XK_AudioMute, spawn, {.v = mutecmd } },
+	{ 0, XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } },
+	{ 0, XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
+	{ 0, XF86XK_AudioPlay, spawn, {.v = playpausecmd } },
+	{ 0, XF86XK_AudioNext, spawn, {.v = nextcmd } },
+	{ 0, XF86XK_AudioPrev, spawn, {.v = prevcmd } },
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,		        XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,		        XK_t,      spawn,          {.v = thunarcmd } },
 	{ 0,	           	        XK_Print,  spawn,          {.v = screenshotcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
+	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_j,      focusstackhid,  {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      focusstackhid,  {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
@@ -104,6 +120,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_s,      show,           {0} },
+	{ MODKEY|ShiftMask,             XK_s,      showall,        {0} },
+	{ MODKEY,                       XK_h,      hide,           {0} },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
@@ -126,6 +145,7 @@ static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+	{ ClkWinTitle,          0,              Button1,        togglewin,      {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
