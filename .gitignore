@@ -2,7 +2,7 @@
 paru-bin/
 *.orig
 *.rej
-*.diff
+suckless/*.diff
 # dwm gitignored
 suckless/dwm-src/dwm
 suckless/dmenu-src/dmenu
