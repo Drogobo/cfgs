@@ -1,16 +1,16 @@
 diff --git a/Makefile b/Makefile
-index 5dbc394093..a21446489d 100644
+index 5dbc394093..91f60be368 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -2,7 +2,7 @@
- #   gmake PREFIX=/usr/local install
+@@ -3,7 +3,7 @@
  
  PREFIX ?= /usr
--ICON_THEMES ?= $(patsubst %/index.theme,%,$(wildcard ./*/index.theme))
-+ICON_THEMES ?= ./Papirus-Dark
- IGNORE ?=
+ ICON_THEMES ?= $(patsubst %/index.theme,%,$(wildcard ./*/index.theme))
+-IGNORE ?=
++IGNORE ?= ./ePapirus ./ePapirus-Light ./ePapirus-Dark
  
  # excludes IGNORE from ICON_THEMES list
+ ICON_THEMES := $(filter-out $(IGNORE), $(ICON_THEMES))
 diff --git a/tools/build_color_folders.sh b/tools/build_color_folders.sh
 index 167b29b7b4..1e7023a498 100755
 --- a/tools/build_color_folders.sh
