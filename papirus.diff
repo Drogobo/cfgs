@@ -1,18 +1,18 @@
 diff --git a/Makefile b/Makefile
-index 5dbc394093..37b694b511 100644
+index 5dbc394093..a21446489d 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -3,7 +3,7 @@
+@@ -2,7 +2,7 @@
+ #   gmake PREFIX=/usr/local install
  
  PREFIX ?= /usr
- ICON_THEMES ?= $(patsubst %/index.theme,%,$(wildcard ./*/index.theme))
--IGNORE ?=
-+IGNORE ?= ./Papirus-Light ./Papirus ./ePapirus-Dark ./ePapirus
+-ICON_THEMES ?= $(patsubst %/index.theme,%,$(wildcard ./*/index.theme))
++ICON_THEMES ?= ./Papirus-Dark
+ IGNORE ?=
  
  # excludes IGNORE from ICON_THEMES list
- ICON_THEMES := $(filter-out $(IGNORE), $(ICON_THEMES))
 diff --git a/tools/build_color_folders.sh b/tools/build_color_folders.sh
-index 167b29b7b4..c5f76af82f 100755
+index 167b29b7b4..1e7023a498 100755
 --- a/tools/build_color_folders.sh
 +++ b/tools/build_color_folders.sh
 @@ -33,7 +33,7 @@ set -eo pipefail
@@ -20,20 +20,19 @@ index 167b29b7b4..c5f76af82f 100755
  TARGET_DIR="$SCRIPT_DIR/../Papirus"
  
 -DEFAULT_COLOR="blue"
-+DEFAULT_COLOR="yellow"
++DEFAULT_COLOR="luke"
  SIZES_REGEX="(16x16|22x22|24x24|32x32|48x48|64x64)"
  COLOR_SIZES_REGEX="(22x22|24x24|32x32|48x48|64x64)"
  FILES_REGEX="(folder|user)-"
-@@ -71,7 +71,7 @@ COLORS=(
- 	[violet]="    #7e57c2 #5d399b #2c1e44 #e4e4e4"
- 	[white]="     #e4e4e4 #cccccc #4f4f4f #ffffff"
- 	[yaru]="      #676767 #973552 #e4e4e4 #ff7446"
--	[yellow]="    #f9bd30 #e19d00 #594411 #e4e4e4"
-+	[yellow]="    #fefd30 #dcdb2a #282a2e #ffffff"
- 	[nordic]="    #82abaa #6c9b9a #4e6766 #e4e4e4"
- 	[custom]="    #value_light #value_dark #323232 #e4e4e4"
- )
-@@ -180,7 +180,6 @@ headline "PHASE 5: Copy color folder icons to derivative themes ..."
+@@ -62,6 +62,7 @@ COLORS=(
+ 	[grey]="      #8e8e8e #727272 #323232 #e4e4e4"
+ 	[indigo]="    #5c6bc0 #3f51b5 #202543 #e4e4e4"
+ 	[magenta]="   #ca71df #b259b8 #47274e #e4e4e4"
++	[luke]="      #fefd30 #dcdb2a #282a2e #ffffff"
+ 	[orange]="    #ee923a #dd772f #533314 #e4e4e4"
+ 	[palebrown]=" #d1bfae #bea389 #a38d7b #e4e4e4"
+ 	[paleorange]="#eeca8f #c89e6b #917359 #e4e4e4"
+@@ -180,7 +181,6 @@ headline "PHASE 5: Copy color folder icons to derivative themes ..."
  COLOR_NAMES="${!COLORS[*]}"  # get a string of colors
  COLOR_REGEX="(${COLOR_NAMES// /|})"  # convert the list of colors to regex
  DERIVATIVES=(
