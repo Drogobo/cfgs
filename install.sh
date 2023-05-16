@@ -118,6 +118,8 @@ if ! $copyonly; then
 	sudo make install
 	cd ..
 	rm -rf papirus-icon-theme/
+	wget -qO- https://git.io/papirus-folders-install | sh
+	papirus-folders -C yellow --theme Papirus-Dark
 # GTK THEME
 	git clone https://codeberg.org/Drogobo/luke-theme
 	cd luke-theme/
