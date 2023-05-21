@@ -346,7 +346,7 @@ static char *colors[][ColCount] = {
 	[SchemeHidSel]       = { hidselfgcolor,    hidselbgcolor,    c000000,              c000000 }, */
 	[SchemeHidNorm]      = { col_white, col_gray, col_black },
 	[SchemeHidSel]       = { col_gray, col_yellow,  col_yellow },
-	[SchemeUrg]          = { urgfgcolor,       urgbgcolor,       urgbordercolor,       urgfloatcolor },
+	[SchemeUrg]          = { col_black,       col_white,       col_white,       col_white },
 	#if RENAMED_SCRATCHPADS_PATCH
 	[SchemeScratchSel]  = { scratchselfgcolor, scratchselbgcolor, scratchselbordercolor, scratchselfloatcolor },
 	[SchemeScratchNorm] = { scratchnormfgcolor, scratchnormbgcolor, scratchnormbordercolor, scratchnormfloatcolor },
@@ -925,6 +925,8 @@ static const Key keys[] = {
 	{ 0, XF86XK_AudioPlay, spawn, {.v = playpausecmd } },
 	{ 0, XF86XK_AudioNext, spawn, {.v = nextcmd } },
 	{ 0, XF86XK_AudioPrev, spawn, {.v = prevcmd } },
+	{ MODKEY,		        XK_t,      spawn,          {.v = thunarcmd } },
+	{ 0,	           	        XK_Print,  spawn,          {.v = screenshotcmd } },
 	#if KEYMODES_PATCH
 	{ MODKEY,                       XK_Escape,     setkeymode,             {.ui = COMMANDMODE} },
 	#endif // KEYMODES_PATCH
