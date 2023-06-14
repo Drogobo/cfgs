@@ -51,8 +51,8 @@ else
 	echo -e "${COLOR}Skipping software install.${NOCOLOR}"
 fi
 
+# ZSH
 if ! $copyonly; then
-	# ZSH
 	echo -e "${COLOR}Change the shell to zsh.${NOCOLOR}"
 	export RUNZSH=no
 	chsh -s /bin/zsh
@@ -96,7 +96,7 @@ else
 	echo -e "${COLOR}Skipping font install.${NOCOLOR}"
 fi
 
-# COPY CONFIGS
+# COPY CONFIGS / ENV VARIABLES
 echo -e "${COLOR}Copy configs to correct dirs.${NOCOLOR}"
 sudo cp -v -r paru.conf doas.conf pacman.conf /etc/
 sudo cp -v bashrc /etc/bash/bashrc
@@ -105,6 +105,8 @@ sudo cp -v stylish/cursor/index.html /usr/share/icons/default/index.theme
 cp -v -r .config/ .oh-my-zsh/ .zshrc ~/
 mkdir ~/Pictures
 cp -v Woods.jpg ~/Pictures/
+sudo ln -s /usr/bin/kitty /usr/bin/gnome-terminal
+sudo ln -s /usr/bin/kitty /usr/bin/xfce4-terminal
 
 if ! $copyonly; then
 # PAPIRUS

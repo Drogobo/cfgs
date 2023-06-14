@@ -123,7 +123,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # WEIRD THINGS THAT AREN'T DEFAULT FOR SOME REASON
 alias ls='ls --color=auto -a'
 #. "$HOME/.cargo/env"
-export PATH="$HOME/.cargo/bin/:$HOME/.config/dwm/:$HOME/.config/dwm/statusbar/:$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+export PATH="$HOME/.cargo/bin/:$HOME/.config/dwm/:$HOME/.config/dwm/statusbar/:$HOME/.local/share/gem/ruby/3.0.0/bin:$HOME/.local/bin:$PATH"
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 export HOME=/home/$USER
 
