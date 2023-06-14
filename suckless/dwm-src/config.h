@@ -511,7 +511,8 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "UTILITY", .isfloating = 1)
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
-	RULE(.class = "Gimp", .tags = 1 << 4)
+	RULE(.class = "Gimp", .tags = 1 << 4, .isfloating = 1)
+	RULE(.class = "Gimp", .title = "GNU Image Manipulation Program", .tags = 1 << 4, .isfloating = 0)
 	RULE(.class = "Firefox", .tags = 1 << 7)
 	#if RENAMED_SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)

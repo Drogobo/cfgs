@@ -107,6 +107,9 @@ mkdir ~/Pictures
 cp -v Woods.jpg ~/Pictures/
 sudo ln -s /usr/bin/kitty /usr/bin/gnome-terminal
 sudo ln -s /usr/bin/kitty /usr/bin/xfce4-terminal
+xdg-mime default kitty.desktop text/x-shellscript
+xdg-mime default kitty.desktop text/plain
+xdg-mime default thunar.desktop inode/directory
 
 if ! $copyonly; then
 # PAPIRUS
