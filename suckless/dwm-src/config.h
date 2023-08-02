@@ -157,9 +157,9 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #if BAR_PANGO_PATCH
 static const char font[]                 = "Hack Nerd Font 16";
 #else
-static const char *fonts[]               = { "Hack Nerd Font:size=16" };
+static const char *fonts[]               = { "Hack Nerd Font:size=16", "Twemoji:pixelsize=16:antialias=true:autohint=true" };
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[]            = "Hack Nerd Font:size=16";
+static const char dmenufont[]            = { "Hack Nerd Font:size=16" };
 
 static char c000000[]                    = "#000000"; // placeholder value
 
@@ -416,6 +416,8 @@ static const char *const autostart[] = {
 	"feh", "--bg-scale", "/home/lra/Pictures/Woods.jpg", NULL,
 	"dwmblocks", NULL,
 	"setxkbmap", "-layout", "us", "altgr-intl", "-option", "compose:rctrl", "-option", "caps:swapescape", NULL,
+	"nm-applet", NULL,
+	"blueman-applet", NULL,
 	NULL /* terminate */
 };
 #endif // COOL_AUTOSTART_PATCH
@@ -463,7 +465,7 @@ static char tagicons[][NUMTAGS][MAX_TAGLEN] =
 static char *tagicons[][NUMTAGS] =
 #endif // NAMETAG_PATCH
 {
-	[DEFAULT_TAGS]        = { "", "󰖟", "󰆉", "", "󰲶", "6", "7", "8", "9" },
+	[DEFAULT_TAGS]        = { "1", "2", "3", "4", "5", "6", "7", "8", "9" },
 	[ALTERNATIVE_TAGS]    = { "A", "B", "C", "D", "E", "F", "G", "H", "I" },
 	[ALT_TAGS_DECORATION] = { "<1>", "<2>", "<3>", "<4>", "<5>", "<6>", "<7>", "<8>", "<9>" },
 };
@@ -669,8 +671,8 @@ static const int scrollargs[][2] = {
 #if FLEXTILE_DELUXE_LAYOUT
 static const Layout layouts[] = {
 	/* symbol     arrange function, { nmaster, nstack, layout, master axis, stack axis, secondary stack axis, symbol func } */
+	{ ":::",      flextile,         { -1, -1, NO_SPLIT, GAPPLESSGRID, GAPPLESSGRID, 0, NULL } }, // gappless grid
 	{ "[]=",      flextile,         { -1, -1, SPLIT_VERTICAL, TOP_TO_BOTTOM, TOP_TO_BOTTOM, 0, NULL } }, // default tile layout
- 	{ "><>",      NULL,             {0} },    /* no layout function means floating behavior */
 	{ "[M]",      flextile,         { -1, -1, NO_SPLIT, MONOCLE, MONOCLE, 0, NULL } }, // monocle
 	{ "|||",      flextile,         { -1, -1, SPLIT_VERTICAL, LEFT_TO_RIGHT, TOP_TO_BOTTOM, 0, NULL } }, // columns (col) layout
 	{ ">M>",      flextile,         { -1, -1, FLOATING_MASTER, LEFT_TO_RIGHT, LEFT_TO_RIGHT, 0, NULL } }, // floating master
@@ -679,10 +681,10 @@ static const Layout layouts[] = {
 	{ "===",      flextile,         { -1, -1, SPLIT_HORIZONTAL, LEFT_TO_RIGHT, TOP_TO_BOTTOM, 0, NULL } }, // bstackhoriz
 	{ "|M|",      flextile,         { -1, -1, SPLIT_CENTERED_VERTICAL, LEFT_TO_RIGHT, TOP_TO_BOTTOM, TOP_TO_BOTTOM, NULL } }, // centeredmaster
 	{ "-M-",      flextile,         { -1, -1, SPLIT_CENTERED_HORIZONTAL, TOP_TO_BOTTOM, LEFT_TO_RIGHT, LEFT_TO_RIGHT, NULL } }, // centeredmaster horiz
-	{ ":::",      flextile,         { -1, -1, NO_SPLIT, GAPPLESSGRID, GAPPLESSGRID, 0, NULL } }, // gappless grid
 	{ "[\\]",     flextile,         { -1, -1, NO_SPLIT, DWINDLE, DWINDLE, 0, NULL } }, // fibonacci dwindle
 	{ "(@)",      flextile,         { -1, -1, NO_SPLIT, SPIRAL, SPIRAL, 0, NULL } }, // fibonacci spiral
 	{ "[T]",      flextile,         { -1, -1, SPLIT_VERTICAL, LEFT_TO_RIGHT, TATAMI, 0, NULL } }, // tatami mats
+	{ "><>",      NULL,             {0} },    /* no layout function means floating behavior */
 	#if TILE_LAYOUT
 	{ "[]=",      tile,             {0} },
 	#endif
@@ -931,8 +933,9 @@ static const Key keys[] = {
 	#if KEYMODES_PATCH
 	{ MODKEY,                       XK_Escape,     setkeymode,             {.ui = COMMANDMODE} },
 	#endif // KEYMODES_PATCH
-	{ MODKEY,                       XK_r,          spawn,                  {.v = dmenucmd } },
-	{ MODKEY,             XK_Return,     spawn,                  {.v = termcmd } },
+	{ MODKEY,                       XK_r,          spawn,                  {.v = (const char*[]){ "dmenu_run", NULL } } },
+	{ MODKEY,	                XK_Return,     spawn,                  {.v = termcmd } },
+	{ MODKEY,			XK_grave,      spawn,		       {.v = (const char*[]){ "dmenuunicode", NULL } } },
 	#if RIODRAW_PATCH
 	{ MODKEY|ControlMask,           XK_p,          riospawnsync,           {.v = dmenucmd } },
 	{ MODKEY|ControlMask,           XK_Return,     riospawn,               {.v = termcmd } },
@@ -1099,7 +1102,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_F5,         xrdb,                   {.v = NULL } },
 	#endif // XRDB_PATCH
 	{ MODKEY,                       XK_t,          setlayout,              {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,          setlayout,              {.v = &layouts[1]} },
+	{ MODKEY,                       XK_y,          setlayout,              {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,          setlayout,              {.v = &layouts[2]} },
 	#if COLUMNS_LAYOUT
 	{ MODKEY,                       XK_c,          setlayout,              {.v = &layouts[3]} },
@@ -1141,7 +1144,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_t,          unfloatvisible,         {.v = &layouts[0]} },
 	#endif // UNFLOATVISIBLE_PATCH
 	#if TOGGLEFULLSCREEN_PATCH
-	{ MODKEY,                       XK_y,          togglefullscreen,       {0} },
+	{ MODKEY,                       XK_f,          togglefullscreen,       {0} },
 	#endif // TOGGLEFULLSCREEN_PATCH
 	#if !FAKEFULLSCREEN_PATCH && FAKEFULLSCREEN_CLIENT_PATCH
 	{ MODKEY|ShiftMask,             XK_y,          togglefakefullscreen,   {0} },

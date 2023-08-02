@@ -139,6 +139,7 @@ echo
 '
 alias n='nvim'
 alias p='paru'
+alias d='devour'
 alias btw='neofetch'
 alias orphankiller='
 if [ -x "$(command -v apt)" ]; then doas apt autoremove

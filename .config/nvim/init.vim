@@ -47,6 +47,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'mattn/emmet-vim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'brenoprata10/nvim-highlight-colors'
+Plug 'lambdalisue/suda.vim'
 call plug#end()
 
 lua << END

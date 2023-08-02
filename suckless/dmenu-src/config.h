@@ -35,7 +35,8 @@ static char *fonts[] =
 static const char *fonts[] =
 #endif // XRESOURCES_PATCH
 {
-	"Hack Nerd Font:size=16"
+	"Hack Nerd Font:size=16",
+	"Twemoji:pixelsize=16:antialias=true:autohint=true"
 };
 #endif // PANGO_PATCH
 #if MANAGED_PATCH
@@ -88,9 +89,9 @@ const
 #endif // XRESOURCES_PATCH
 char *colors[][2] = {
 	/*               fg         bg       */
-	[SchemeNorm] = { "#bbbbbb", "#222222" },
-	[SchemeSel]  = { "#eeeeee", "#005577" },
-	[SchemeOut]  = { "#000000", "#00ffff" },
+	[SchemeNorm] = { "#ffffff", "#282a2e" },
+	[SchemeSel]  = { "#282a2e", "#fefd30" },
+	[SchemeOut]  = { "#282a2e", "#00ffff" },
 	#if BORDER_PATCH
 	[SchemeBorder] = { "#000000", "#005577" },
 	#endif // BORDER_PATCH
