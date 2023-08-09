@@ -418,6 +418,7 @@ static const char *const autostart[] = {
 	"setxkbmap", "-layout", "us", "altgr-intl", "-option", "compose:rctrl", "-option", "caps:swapescape", NULL,
 	"nm-applet", NULL,
 	"blueman-applet", NULL,
+	"cbatticon", NULL,
 	NULL /* terminate */
 };
 #endif // COOL_AUTOSTART_PATCH
