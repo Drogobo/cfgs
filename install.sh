@@ -27,7 +27,7 @@ fi
 # SOFTWARE INSTALL
 if ! $copyonly; then
 	echo -e "${COLOR}Install software for my configs.${NOCOLOR}"
-	if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty xorg playerctl pipewire neofetch flatpak doas git base-devel python-pip luajit curl zsh meson sassc zsh-completions xcb-util-cursor redshift inkscape wget xorg-xmodmap picom xorg-setxkbmap xcursor-vanilla-dmz feh libxcb thunar p7zip flameshot blueman network-manager-applet && sudo chmod u+s "$(which fusermount)"
+	if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty xorg playerctl pipewire neofetch flatpak doas git base-devel python-pip luajit curl zsh meson sassc zsh-completions xcb-util-cursor redshift inkscape wget xorg-xmodmap picom xorg-setxkbmap xcursor-vanilla-dmz feh libxcb thunar p7zip flameshot blueman network-manager-applet cbatticon acpi && sudo chmod u+s "$(which fusermount)"
 	elif [ -x "$(command -v emerge)" ]; then sudo emerge -a app-editors/neovim dev-lang/rust-bin sys-apps/flatpak x11-terms/kitty app-admin/doas dev-vcs/git app-misc/neofetch net-misc/curl dev-python/pip sys-fs/fuse:0 sys-kernel/genkernel app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions x11-misc/xclip x11-libs/xcb-util-cursor x11-misc/redshift x11-misc/picom x11-apps/xmodmap x11-apps/setxkbmap media-gfx/feh x11-libs/libxcb media-gfx/flameshot xfce-base/thunar media-video/pipewire media-sound/playerctl x11-themes/vanilla-dmz-xcursors app-arch/p7zip dev-util/meson dev-lang/sassc media-gfx/inkscape net-misc/wget gnome-extra/nm-applet net-wireless/blueman
 	else echo "${COLOR}Cannot figure out how to insatll software on whatever this OS is.${NOCOLOR}"; fi
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -102,6 +102,7 @@ sudo cp -v -r paru.conf doas.conf pacman.conf /etc/
 sudo cp -v bashrc /etc/bash/bashrc
 sudo cp -v bashrc /etc/bash.bashrc
 sudo cp -v stylish/cursor/index.html /usr/share/icons/default/index.theme
+sudo cp -v .XCompose ~/.XCompose
 cp -v dmenuunicode ~/.local/bin
 cp -v -r .config/ .oh-my-zsh/ .zshrc ~/
 mkdir ~/Pictures
