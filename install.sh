@@ -64,6 +64,7 @@ fi
 # SUCKLESS STUFF
 if $suckless; then
 	mkdir -p ~/.config/dwm/
+	mkdir /usr/share/xsessions/
 	sudo cp -v suckless/dwm.desktop /usr/share/xsessions/dwm.desktop
 	sudo cp -v suckless/index.theme /usr/share/icons/default/index.theme
 	cd suckless/dwm-src/
