@@ -35,7 +35,7 @@ static char *fonts[] =
 static const char *fonts[] =
 #endif // XRESOURCES_PATCH
 {
-	"Hack Nerd Font:size=16",
+	"Hack:size=16",
 	"Twemoji:pixelsize=16:antialias=true:autohint=true"
 };
 #endif // PANGO_PATCH

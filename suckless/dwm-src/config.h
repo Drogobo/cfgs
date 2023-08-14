@@ -155,11 +155,11 @@ static void (*bartabmonfns[])(Monitor *) = { NULL /* , customlayoutfn */ };
 #endif // MONOCLE_LAYOUT
 #endif // BAR_TABGROUPS_PATCH
 #if BAR_PANGO_PATCH
-static const char font[]                 = "Hack Nerd Font 16";
+static const char font[]                 = "Hack";
 #else
-static const char *fonts[]               = { "Hack Nerd Font:size=16", "Twemoji:pixelsize=16:antialias=true:autohint=true" };
+static const char *fonts[]               = { "Hack:size=16", "Twemoji:pixelsize=16:antialias=true:autohint=true" };
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[]            = { "Hack Nerd Font:size=16" };
+static const char dmenufont[]            = { "Hack:size=16" };
 
 static char c000000[]                    = "#000000"; // placeholder value
 
