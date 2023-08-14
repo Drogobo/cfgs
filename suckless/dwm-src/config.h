@@ -411,7 +411,7 @@ static const char *layoutmenu_cmd = "layoutmenu.sh";
 static const char *const autostart[] = {
 	"xset", "r", "rate", "300", "50", NULL,
 	"picom", NULL,
-	"redshift", NULL,
+	"redshift-gtk", NULL,
 	"xdisablemiddleclickpaste", NULL,
 	"feh", "--bg-scale", "/home/lra/Pictures/Woods.jpg", NULL,
 	"dwmblocks", NULL,
