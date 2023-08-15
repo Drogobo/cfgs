@@ -30,7 +30,7 @@ if ! $copyonly; then
 	if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty xorg playerctl pipewire neofetch flatpak doas git base-devel python-pip luajit curl xclip zsh meson sassc zsh-completions xcb-util-cursor redshift inkscape wget xorg-xmodmap picom xorg-setxkbmap xcursor-vanilla-dmz feh libxcb thunar p7zip flameshot blueman python-pynvim network-manager-applet cbatticon acpi ttf-hack acpilight && sudo chmod u+s "$(which fusermount)"
 	else echo "${COLOR}Cannot figure out how to insatll software on whatever this OS is.${NOCOLOR}"; fi
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	git clone https://github.com/salman-abedin/devour.git && cd devour && sudo make install && cd .. && rm -rf devour/
+	sudo usermod -a -G video $LOGNAME
 	# ARCH SPECIFIC
 	if [ -x "$(command -v pacman)" ]; then
 		echo -e "${COLOR}Installing paru-bin from the AUR.${NOCOLOR}"

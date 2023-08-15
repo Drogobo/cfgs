@@ -128,25 +128,12 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 export HOME=/home/$USER
 
 # ALIASES
-alias updates='
-if [ -x "$(command -v apt)" ]; then doas apt update && doas apt upgrade
-elif [ -x "$(command -v pacman)" ]; then paru -Syu
-elif [ -x "$(command -v emerge)" ]; then doas emaint -a sync && doas emerge --ask --verbose --update --deep --changed-use @world
-else echo "Cannot figure out how to update on whatever this OS is.">&2; fi
-flatpak update
-nvim --headless +PlugInstall +PlugUpdate +qa
-echo
-'
+alias updates='paru -Syu && flatpak update && nvim --headless +PlugInstall +PlugUpdate +qa && echo'
 alias n='nvim'
 alias p='paru'
 alias d='devour'
 alias btw='neofetch'
-alias orphankiller='
-if [ -x "$(command -v apt)" ]; then doas apt autoremove
-elif [ -x "$(command -v pacman)" ]; then paru -Qtdq | paru -Rns - 
-elif [ -x "$(command -v emerge)" ]; then doas emerge --clean
-else echo "Cannot figure out how to remove orphans on this OS.">&2; fi
-'
+alias orphankiller='paru -Qtdq | paru -Rns - '
 alias findproc='ps aux | grep -i'
 alias killde='kquitapp5 plasmashell && kstart5 plasmashell'
 alias 0x0="curl -F 'file=@-' 0x0.st"
