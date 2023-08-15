@@ -896,6 +896,8 @@ static const char *mutecmd[] = { "pactl", "set-sink-mute",   "0", "toggle",  NUL
 static const char *playpausecmd[] = { "playerctl", "play-pause", NULL };
 static const char *nextcmd[] = { "playerctl", "next", NULL };
 static const char *prevcmd[] = { "playerctl", "previous", NULL };
+static const char *brightnessinc[] = { "xbacklight", "-inc", "10", NULL };
+static const char *brightnessdec[] = { "xbacklight", "-dec", "10", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -926,9 +928,11 @@ static const Key keys[] = {
 	{ 0, XF86XK_AudioMute, spawn, {.v = mutecmd } },
 	{ 0, XF86XK_AudioLowerVolume, spawn, {.v = voldowncmd } },
 	{ 0, XF86XK_AudioRaiseVolume, spawn, {.v = volupcmd } },
-	{ 0, XF86XK_AudioPlay, spawn, {.v = playpausecmd } },
-	{ 0, XF86XK_AudioNext, spawn, {.v = nextcmd } },
-	{ 0, XF86XK_AudioPrev, spawn, {.v = prevcmd } },
+	{ 0, XF86XK_MonBrightnessUp,	spawn,		{.v = brightnessinc } },
+	{ 0, XF86XK_MonBrightnessDown,	spawn,		{.v = brightnessdec } },
+	{ 0, XF86XK_AudioPlay, spawn,	{.v = playpausecmd } },
+	{ 0, XF86XK_AudioNext, spawn,	{.v = nextcmd } },
+	{ 0, XF86XK_AudioPrev, spawn,	{.v = prevcmd } },
 	{ MODKEY,		        XK_t,      spawn,          {.v = thunarcmd } },
 	{ 0,	           	        XK_Print,  spawn,          {.v = screenshotcmd } },
 	#if KEYMODES_PATCH
