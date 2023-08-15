@@ -27,7 +27,7 @@ fi
 # SOFTWARE INSTALL
 if ! $copyonly; then
 	echo -e "${COLOR}Install software for my configs.${NOCOLOR}"
-	if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty xorg playerctl pipewire neofetch flatpak doas git base-devel python-pip luajit curl zsh meson sassc zsh-completions xcb-util-cursor redshift inkscape wget xorg-xmodmap picom xorg-setxkbmap xcursor-vanilla-dmz feh libxcb thunar p7zip flameshot blueman python-pynvim network-manager-applet cbatticon acpi ttf-hack xorg-xbacklight && sudo chmod u+s "$(which fusermount)"
+	if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty xorg playerctl pipewire neofetch flatpak doas git base-devel python-pip luajit curl xclip zsh meson sassc zsh-completions xcb-util-cursor redshift inkscape wget xorg-xmodmap picom xorg-setxkbmap xcursor-vanilla-dmz feh libxcb thunar p7zip flameshot blueman python-pynvim network-manager-applet cbatticon acpi ttf-hack acpilight && sudo chmod u+s "$(which fusermount)"
 	else echo "${COLOR}Cannot figure out how to insatll software on whatever this OS is.${NOCOLOR}"; fi
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	git clone https://github.com/salman-abedin/devour.git && cd devour && sudo make install && cd .. && rm -rf devour/
@@ -101,6 +101,7 @@ xdg-mime default thunar.desktop inode/directory
 cd ~/.local/share
 rm emoji*
 wget https://raw.githubusercontent.com/LukeSmithxyz/voidrice/master/.local/share/larbs/emoji
+wget https://gitlab.com/wavexx/acpilight/-/raw/master/90-backlight.rules && sudo mv 90-backlight.rules /etc/udev/rules.d/90-backlight.rules
 cd "${JUEGOS}"
 
 if ! $copyonly; then
