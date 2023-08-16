@@ -27,24 +27,20 @@ fi
 # SOFTWARE INSTALL
 if ! $copyonly; then
 	echo -e "${COLOR}Install software for my configs.${NOCOLOR}"
-	if [ -x "$(command -v pacman)" ]; then sudo pacman -S --needed neovim rustup kitty xorg playerctl pipewire neofetch flatpak doas git base-devel python-pip luajit curl xclip zsh meson sassc zsh-completions xcb-util-cursor redshift inkscape wget xorg-xmodmap picom xorg-setxkbmap xcursor-vanilla-dmz feh libxcb thunar p7zip flameshot blueman python-pynvim network-manager-applet cbatticon acpi ttf-hack acpilight && sudo chmod u+s "$(which fusermount)"
-	else echo "${COLOR}Cannot figure out how to insatll software on whatever this OS is.${NOCOLOR}"; fi
+	sudo pacman -S --needed neovim rustup kitty xorg playerctl pipewire neofetch flatpak doas git base-devel python-pip luajit curl xclip zsh meson sassc zsh-completions xcb-util-cursor redshift inkscape wget xorg-xmodmap picom xorg-setxkbmap xcursor-vanilla-dmz feh libxcb thunar p7zip flameshot blueman python-pynvim network-manager-applet cbatticon acpi ttf-hack acpilight xdg-user-dirs && sudo chmod u+s "$(which fusermount)"
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	sudo usermod -a -G video $LOGNAME
-	# ARCH SPECIFIC
-	if [ -x "$(command -v pacman)" ]; then
-		echo -e "${COLOR}Installing paru-bin from the AUR.${NOCOLOR}"
-		mkdir paru-bin
-		git clone https://aur.archlinux.org/paru-bin.git
-		cd paru-bin
-		makepkg -si
-		cd ..
-		rm -rf paru-bin/
-		echo -e "${COLOR}Install more crap but from the AUR.${NOCOLOR}"
-		paru -S --needed ttf-twemoji adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts ttf-ubraille devour
-	else
-		echo -e "${COLOR}Skipping AUR packages because you are not on arch.${NOCOLOR}"
-	fi
+	echo -e "${COLOR}Installing paru-bin from the AUR.${NOCOLOR}"
+	mkdir paru-bin
+	git clone https://aur.archlinux.org/paru-bin.git
+	cd paru-bin
+	makepkg -si
+	cd ..
+	rm -rf paru-bin/
+	echo -e "${COLOR}Install more crap but from the AUR.${NOCOLOR}"
+	paru -S --needed ttf-twemoji adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts ttf-ubraille devour
+	echo -e "${COLOR}Skipping AUR packages because you are not on arch.${NOCOLOR}"
+	xdg-user-dirs-update
 else
 	echo -e "${COLOR}Skipping software install.${NOCOLOR}"
 fi
