@@ -896,8 +896,8 @@ static const char *mutecmd[] = { "pactl", "set-sink-mute",   "0", "toggle",  NUL
 static const char *playpausecmd[] = { "playerctl", "play-pause", NULL };
 static const char *nextcmd[] = { "playerctl", "next", NULL };
 static const char *prevcmd[] = { "playerctl", "previous", NULL };
-static const char *brightnessinc[] = { "xbacklight", "-inc", "10", NULL };
-static const char *brightnessdec[] = { "xbacklight", "-dec", "10", NULL };
+static const char *brightnessinc[] = { "xbacklight", "-inc", "5", NULL };
+static const char *brightnessdec[] = { "xbacklight", "-dec", "5", NULL };
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
