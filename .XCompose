@@ -1412,6 +1412,11 @@
 <Multi_key> <x> <A>				: "ɑ"    U0251 # Open back unrounded vowel
 <Multi_key> <x> <6>				: "ɒ"    U0252 # Open back rounded vowel
 <Multi_key> <x> <B> <backslash>			: "ʙ"    U0299 # Voiced bilabial trill
+<Multi_key> <x> <apostrophe>			: "˞"    U02DE # R-colored vowel
+<Multi_key> <x> <O>				: "ɔ"    U0254 # Open-mid back rounded vowel
+<Multi_key> <x> <3>				: "ɜ"    U025C # Open-mid central unrounded vowel
+<Multi_key> <x> <t> <i> <e> 			: "͡"	 U0361 # TIE BAR
+<Multi_key> <x> <N>				: "ŋ"	 U014B # Voiced velar nasal
 # Spacing Modifier Letters
 <Multi_key> <slash> <U0294>				: "ʡ"	U02A1 # LATIN LETTER GLOTTAL STOP WITH STROKE
 <Multi_key> <KP_Divide> <U0294>				: "ʡ"	U02A1 # LATIN LETTER GLOTTAL STOP WITH STROKE
