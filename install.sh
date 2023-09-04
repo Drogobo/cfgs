@@ -114,6 +114,7 @@ if ! $copyonly; then
 	cd ..
 	rm -rf papirus-icon-theme/
 	cd "${JUEGOS}"
+	wget https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-folders/master/papirus-folders
 	chmod +x papirus-folders
 	./papirus-folders -C luke --theme Papirus-Dark
 # GTK THEME
