@@ -145,3 +145,4 @@ findpid() {
 killa() {
 	kill -9 $(findpid "$1")
 }
+ssh-agent /bin/zsh
