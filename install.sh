@@ -130,6 +130,20 @@ else
 	echo -e "${COLOR}Skipping GTK and icon theme.${NOCOLOR}"
 fi
 
+# INSTALL NERD FONTS
+if ! $copyonly; then
+	echo -e "${COLOR}Installing hack nerd font.${NOCOLOR}"
+	mkdir nerd_font && cd nerd_font
+	wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/NerdFontsSymbolsOnly.zip 
+	7z e NerdFontsSymbolsOnly.zip
+	rm NerdFontsSymbolsOnly.zip readme.md LICENSE.md
+	sudo cp -r * /usr/share/fonts/TTF/
+	cd ..
+	rm -rf nerd_font
+else
+	echo -e "${COLOR}Skipping font install.${NOCOLOR}"
+fi
+
 if ! $copyonly; then
 # UPDATE SYSTEM
 	echo -e "${COLOR}Do a quick update to finalize.${NOCOLOR}"
