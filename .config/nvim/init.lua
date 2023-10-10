@@ -50,6 +50,9 @@ Plug 'brenoprata10/nvim-highlight-colors'
 Plug 'lambdalisue/suda.vim'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'othree/html5.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'evanleck/vim-svelte', {'branch': 'main'}
 call plug#end()
 ]])
 
