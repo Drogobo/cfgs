@@ -1417,12 +1417,13 @@
 <Multi_key> <x> <at> <grave>			: "ɚ"	# R-colored schwa
 <Multi_key> <x> <p> <backslash>			: "ɸ"	# Voiceless bilabial fricative
 <Multi_key> <x> <C>				: "ç"	# Voiceless palatal fricative
+<Multi_key> <x> <j> <backslash>			: "ʝ"	# Voiced palatal fricative
 <Multi_key> <x> <F>				: "ɱ"	# Voiced labiodental nasal
 <Multi_key> <x> <B>				: "β"	# Voiced bilabial fricative
 <Multi_key> <x> <W>				: "ʍ"	# Voiceless labial-velar fricative
 <Multi_key> <x> <U> <backslash>			: "ᵿ"	# Near-close central rounded vowel
 <Multi_key> <x> <percent>			: "ˌ"	# Secondary stress
-<Multi_key> <x> <quote>				: "ˈ"	# Primary stress
+<Multi_key> <x> <quotedbl>			: "ˈ"	# Primary stress
 <Multi_key> <x> <5>				: "ɫ"	# Velarized alveolar lateral approximant
 <Multi_key> <x> <4>				: "ɾ"	# Voiced alveolar tap or flap
 <Multi_key> <x> <x> <backslash>			: "ɧ"	# Voiceless palatal-velar fricative

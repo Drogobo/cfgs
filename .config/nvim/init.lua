@@ -39,6 +39,12 @@ nnoremap <F4> :NvimTreeToggle<CR>
 nnoremap <C-H> b
 nnoremap <C-L> w
 
+" Bind arrows to move visual lines
+nnoremap <Down> gj
+nnoremap <Up> gk 
+vnoremap <Down> gj
+vnoremap <Up> gk
+
 " PLUGINS
 call plug#begin()
 Plug 'nvim-lualine/lualine.nvim'
