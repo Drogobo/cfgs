@@ -1392,50 +1392,108 @@
 <Multi_key> <minus> <period> <e>		: "ė̄"	# LATIN SMALL LETTER E WITH DOT ABOVE plus combining macron
 <Multi_key> <underscore> <period> <e>		: "ė̄"	# LATIN SMALL LETTER E WITH DOT ABOVE plus combining macron
 # IPA Extensions
-<Multi_key> <x> <at>				: "ə"   # Schwa
-<Multi_key> <x> <question>			: "ʔ"   # Glottal Stop
-<Multi_key> <x> <I>				: "ɪ"   # Near-close near-front unrounded vowel
-<Multi_key> <x> <V>				: "ʌ"   # Open-mid back unrounded vowel
-<Multi_key> <x> <T>				: "θ"   # Voiceless Dental Fricative
-<Multi_key> <x> <O> <backslash>			: "ʘ"   # Bilabial Click
-<Multi_key> <x> <S>				: "ʃ"   # Voiceless postalveolar fricative
-<Multi_key> <x> <E>				: "ɛ"   # Open-mid front unrounded vowel
-<Multi_key> <x> <M>				: "ɯ"   # Close back unrounded vowel
-<Multi_key> <x> <Z>				: "ʒ"   # Voiced postalveolar fricative
+<Multi_key> <x> <b> <underscore> <less>		: "ɓ"   # Voiced bilabial implosive
+<Multi_key> <x> <d> <grave>			: "ɖ"   # Voiced retroflex plosive
+<Multi_key> <x> <d> <underscore> <less>		: "ɗ"   # Voiced alveolar implosive
+<Multi_key> <x> <g> <underscore> <less>		: "ɠ"   # Voiced velar implosive
+<Multi_key> <x> <h> <backslash>			: "ɦ"   # Voiced glottal fricative
+<Multi_key> <x> <j> <backslash>			: "ʝ"	# Voiced palatal fricative
+<Multi_key> <x> <l> <grave>			: "ɭ"	# Voiced etroflex lateral approximant
+<Multi_key> <x> <l> <backslash>			: "ɺ"	# Voiced alveolar lateral tap or flap
+<Multi_key> <x> <n> <grave>			: "ɳ"	# Voiced retroflex nasal
+<Multi_key> <x> <p> <backslash>			: "ɸ"	# Voiceless bilabial fricative
+<Multi_key> <x> <r> <grave>			: "ɽ"	# Voiced retroflex tap or flap
 <Multi_key> <x> <r> <backslash>			: "ɹ"   # Voiced alveolar approximant
 <Multi_key> <x> <r> <backslash> <grave>    	: "ɻ"   # Voiced retroflex approximant
-<Multi_key> <x> <D>				: "ð"   # Voiced dental fricative
-<Multi_key> <x> <U>				: "ʊ"   # Near-close back rounded vowel
+<Multi_key> <x> <s> <grave>			: "ʂ"	# Voiceless retroflex fricative
+<Multi_key> <x> <s> <backslash>			: "ɕ"	# Voiceless alveolo-palatal fricative
+<Multi_key> <x> <t> <grave>			: "ʈ"	# Voiceless retroflex plosive
+<Multi_key> <x> <v> <backslash>			: "ʋ"   # Labiodental approximant
+<Multi_key> <x> <P>				: "ʋ"   # Labiodental approximant
+<Multi_key> <x> <x> <backslash>			: "ɧ"	# Voiceless palatal-velar fricative
+<Multi_key> <x> <z> <grave>			: "ʐ"	# Voiced retroflex fricative
+<Multi_key> <x> <z> <backslash>			: "ʑ"	# Voiced alveolo-palatal fricative
 <Multi_key> <x> <A>				: "ɑ"   # Open back unrounded vowel
-<Multi_key> <x> <6>				: "ɒ"   # Open back rounded vowel
-<Multi_key> <x> <B> <backslash>			: "ʙ"   # Voiced bilabial trill
-<Multi_key> <x> <grave>				: "˞"   # Rhotic Hook
-<Multi_key> <x> <O>				: "ɔ"   # Open-mid back rounded vowel
-<Multi_key> <x> <3>				: "ɜ"   # Open-mid central unrounded vowel
-<Multi_key> <x> <t> <i> <e> 			: "͡"	# TIE BAR
-<Multi_key> <x> <N>				: "ŋ"	# Voiced velar nasal
-<Multi_key> <x> <at> <grave>			: "ɚ"	# R-colored schwa
-<Multi_key> <x> <p> <backslash>			: "ɸ"	# Voiceless bilabial fricative
-<Multi_key> <x> <C>				: "ç"	# Voiceless palatal fricative
-<Multi_key> <x> <j> <backslash>			: "ʝ"	# Voiced palatal fricative
-<Multi_key> <x> <F>				: "ɱ"	# Voiced labiodental nasal
 <Multi_key> <x> <B>				: "β"	# Voiced bilabial fricative
-<Multi_key> <x> <W>				: "ʍ"	# Voiceless labial-velar fricative
+<Multi_key> <x> <B> <backslash>			: "ʙ"	# Voiced bilabial trill
+<Multi_key> <x> <C>				: "ç"	# Voiceless palatal fricative
+<Multi_key> <x> <D>				: "ð"   # Voiced dental fricative
+<Multi_key> <x> <E>				: "ɛ"   # Open-mid front unrounded vowel
+<Multi_key> <x> <F>				: "ɱ"	# Voiced labiodental nasal
+<Multi_key> <x> <G>				: "ɣ"	# Voiced velar fricative
+<Multi_key> <x> <G> <backslash>			: "ɢ"	# Voiced uvular plosive
+<Multi_key> <x> <G> <backslash> <underscore> <less>	: "ʛ"	# Voiced uvular implosive
+<Multi_key> <x> <H>				: "ɥ"	# Voiced labial-palatal approximant 
+<Multi_key> <x> <H> <backslash>			: "ʜ"	# Voiceless epiglottal fricative (voiceless epiglottal fricative)
+<Multi_key> <x> <I>				: "ɪ"   # Near-close near-front unrounded vowel
+<Multi_key> <x> <I> <backslash>			: "ᵻ"   # Near-close central unrounded vowel 
+<Multi_key> <x> <J>				: "ɲ"	# Voiced palatal nasal
+<Multi_key> <x> <J> <backslash>			: "ɟ"	# Voiced palatal plosive
+<Multi_key> <x> <J> <backslash> <underscore> <less>	: "ʄ"	# Voiced palatal implosive
+<Multi_key> <x> <K>				: "ɬ"	# Voiceless alveolar lateral fricative
+<Multi_key> <x> <K> <backslash>			: "ɮ"	# Voiced alveolar lateral fricative
+<Multi_key> <x> <L> 				: "ʎ"	# Voiced palatal lateral approximant
+<Multi_key> <x> <L> <backslash>			: "ʟ"	# Voiced velar lateral approximant
+<Multi_key> <x> <M>				: "ɯ"   # Close back unrounded vowel
+<Multi_key> <x> <M> <backslash>			: "ɰ"   # Close back unrounded vowel
+<Multi_key> <x> <N>				: "ŋ"	# Voiced velar nasal
+<Multi_key> <x> <N> <backslash>			: "ɴ"	# Voiced uvular nasal
+<Multi_key> <x> <O>				: "ɔ"   # Open-mid back rounded vowel
+<Multi_key> <x> <O> <backslash>			: "ʘ"   # Bilabial Click
+<Multi_key> <x> <6>				: "ɒ"   # Open back rounded vowel
+<Multi_key> <x> <R>				: "ʁ"   # Voiced uvular fricative
+<Multi_key> <x> <R> <backslash>			: "ʀ"   # Voiced uvular trill
+<Multi_key> <x> <S>				: "ʃ"   # Voiceless postalveolar fricative
+<Multi_key> <x> <T>				: "θ"   # Voiceless Dental Fricative
+<Multi_key> <x> <U>				: "ʊ"   # Near-close back rounded vowel
 <Multi_key> <x> <U> <backslash>			: "ᵿ"	# Near-close central rounded vowel
+<Multi_key> <x> <V>				: "ʌ"   # Open-mid back unrounded vowel
+<Multi_key> <x> <W>				: "ʍ"	# Voiceless labial-velar fricative
+<Multi_key> <x> <X>				: "χ"	# Voiceless uvular fricative
+<Multi_key> <x> <X> <backslash>			: "ħ"	# Voiceless pharyngeal fricative
+<Multi_key> <x> <Y>				: "ʏ"   # Near-close front rounded vowel
+<Multi_key> <x> <Z>				: "ʒ"   # Voiced postalveolar fricative
 <Multi_key> <x> <quotedbl>			: "ˈ"	# Primary stress
 <Multi_key> <x> <percent>			: "ˌ"	# Secondary stress
+<Multi_key> <x> <apostrophe>			: "ʲ"	# Palatalized
+<Multi_key> <x> <underscore> <j>		: "ʲ"	# Palatalized
+<Multi_key> <x> <colon>				: "ː"	# Long
+<Multi_key> <x> <colon> <backslash>		: "ˑ"	# Half long
+<Multi_key> <x> <at>				: "ə"   # Mid central unrounded vowel (schwa)
+<Multi_key> <x> <at> <backslash>		: "ɘ"   # Close-mid central unrounded vowel
+<Multi_key> <x> <at> <grave>			: "ɚ"	# R-colored schwa
+<Multi_key> <x> <braceleft> 			: "æ"	# Near-open front unrounded vowel
+<Multi_key> <x> <braceright> 			: "ʉ"	# Close central rounded vowel
+<Multi_key> <x> <1> 				: "ɨ"	# Close central unrounded vowel
+<Multi_key> <x> <2>				: "ø"	# Close-mid front rounded vowel
+<Multi_key> <x> <3>				: "ɜ"   # Open-mid central unrounded vowel
+<Multi_key> <x> <3> <backslash>			: "ɞ"   # Open-mid central rounded vowel
 <Multi_key> <x> <4>				: "ɾ"	# Voiced alveolar tap or flap
 <Multi_key> <x> <5>				: "ɫ"	# Velarized alveolar lateral approximant
-<Multi_key> <x> <x> <backslash>			: "ɧ"	# Voiceless palatal-velar fricative
-<Multi_key> <x> <J>				: "ɲ"	# Voiced palatal nasal
 <Multi_key> <x> <6>				: "ɐ"	# Near-open central unrounded vowel
-<Multi_key> <x> <2>				: "ø"	# Close-mid front rounded vowel
+<Multi_key> <x> <7>				: "ɤ"	# Close-mid back unrounded vowel
+<Multi_key> <x> <8>				: "ɵ"	# Close-mid central rounded vowel
+<Multi_key> <x> <9>				: "œ"	# Open-mid front rounded vowel
+<Multi_key> <x> <ampersand>			: "ɶ"	# Open front rounded vowel
+<Multi_key> <x> <question>			: "ʔ"   # Glottal Stop
+<Multi_key> <x> <question> <backslash>		: "ʕ"   # Voiced pharyngeal fricative
+<Multi_key> <x> <less> <backslash>		: "ʢ"   # Voiced epiglottal 
+<Multi_key> <x> <greater> <backslash>		: "ʡ"   # Epiglottal plosive
+<Multi_key> <x> <asciicircum>			: "ꜛ"   # Upstep
+<Multi_key> <x> <exclam>			: "ꜜ"   # Downstep
+<Multi_key> <x> <exclam> <backslash>		: "ǃ"   # Postalveolar click
+<Multi_key> <x> <bar>				: "|"   # Minor (foot) group
+<Multi_key> <x> <bar> <backslash>		: "ǀ"   # Dental click
+<Multi_key> <x> <bar> <bar>			: "‖"   # Major (intonation) group
+<Multi_key> <x> <bar> <backslash> <bar> <backslash>	: "ǁ"   # Alveolar lateral click
+<Multi_key> <x> <equal> <backslash>		: "ǂ"   # Palatal click
+<Multi_key> <x> <minus> <backslash>		: "‿"   # Linking mark
+<Multi_key> <x> <grave>				: "˞"   # Rhotic Hook
+<Multi_key> <x> <t> <i> <e> 			: "͡"	# TIE BAR
 <Multi_key> <x> <underscore> <H>		: "ʰ"	# Aspiration diacritic
 <Multi_key> <x> <underscore> <N>		: "̼"	# Linguolabial diacritic
 <Multi_key> <x> <underscore> <w>		: "ʷ"	# Labialized diacritic
-<Multi_key> <x> <L> 				: "ʎ"	# Voiced palatal lateral approximant
 <Multi_key> <x> <Q>				: "ɒ"	# Open back unrounded vowel
-<Multi_key> <x> <n> <grave>			: "ɳ"	# Voiced retroflex nasal
 # Spacing Modifier Letters
 <Multi_key> <slash> <U0294>				: "ʡ"	U02A1 # LATIN LETTER GLOTTAL STOP WITH STROKE
 <Multi_key> <KP_Divide> <U0294>				: "ʡ"	U02A1 # LATIN LETTER GLOTTAL STOP WITH STROKE
