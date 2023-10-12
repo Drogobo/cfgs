@@ -1403,7 +1403,7 @@
 <Multi_key> <x> <M>				: "ɯ"   # Close back unrounded vowel
 <Multi_key> <x> <Z>				: "ʒ"   # Voiced postalveolar fricative
 <Multi_key> <x> <r> <backslash>			: "ɹ"   # Voiced alveolar approximant
-<Multi_key> <x> <r> <backslash> <apostrophe>    : "ɻ"   # Voiced retroflex approximant
+<Multi_key> <x> <r> <backslash> <grave>    	: "ɻ"   # Voiced retroflex approximant
 <Multi_key> <x> <D>				: "ð"   # Voiced dental fricative
 <Multi_key> <x> <U>				: "ʊ"   # Near-close back rounded vowel
 <Multi_key> <x> <A>				: "ɑ"   # Open back unrounded vowel
@@ -1422,14 +1422,20 @@
 <Multi_key> <x> <B>				: "β"	# Voiced bilabial fricative
 <Multi_key> <x> <W>				: "ʍ"	# Voiceless labial-velar fricative
 <Multi_key> <x> <U> <backslash>			: "ᵿ"	# Near-close central rounded vowel
-<Multi_key> <x> <percent>			: "ˌ"	# Secondary stress
 <Multi_key> <x> <quotedbl>			: "ˈ"	# Primary stress
-<Multi_key> <x> <5>				: "ɫ"	# Velarized alveolar lateral approximant
+<Multi_key> <x> <percent>			: "ˌ"	# Secondary stress
 <Multi_key> <x> <4>				: "ɾ"	# Voiced alveolar tap or flap
+<Multi_key> <x> <5>				: "ɫ"	# Velarized alveolar lateral approximant
 <Multi_key> <x> <x> <backslash>			: "ɧ"	# Voiceless palatal-velar fricative
 <Multi_key> <x> <J>				: "ɲ"	# Voiced palatal nasal
 <Multi_key> <x> <6>				: "ɐ"	# Near-open central unrounded vowel
 <Multi_key> <x> <2>				: "ø"	# Close-mid front rounded vowel
+<Multi_key> <x> <underscore> <H>		: "ʰ"	# Aspiration diacritic
+<Multi_key> <x> <underscore> <N>		: "̼"	# Linguolabial diacritic
+<Multi_key> <x> <underscore> <w>		: "ʷ"	# Labialized diacritic
+<Multi_key> <x> <L> 				: "ʎ"	# Voiced palatal lateral approximant
+<Multi_key> <x> <Q>				: "ɒ"	# Open back unrounded vowel
+<Multi_key> <x> <n> <grave>			: "ɳ"	# Voiced retroflex nasal
 # Spacing Modifier Letters
 <Multi_key> <slash> <U0294>				: "ʡ"	U02A1 # LATIN LETTER GLOTTAL STOP WITH STROKE
 <Multi_key> <KP_Divide> <U0294>				: "ʡ"	U02A1 # LATIN LETTER GLOTTAL STOP WITH STROKE
