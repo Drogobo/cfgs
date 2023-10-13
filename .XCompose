@@ -1488,12 +1488,54 @@
 <Multi_key> <x> <bar> <backslash> <bar> <backslash>	: "ǁ"   # Alveolar lateral click
 <Multi_key> <x> <equal> <backslash>		: "ǂ"   # Palatal click
 <Multi_key> <x> <minus> <backslash>		: "‿"   # Linking mark
+<Multi_key> <x> <underscore> <quotedbl>		: "̈" 	# Centralized
+<Multi_key> <x> <underscore> <plus>		: "̟" 	# Advanced
+<Multi_key> <x> <underscore> <minus>		: "̠̈" 	# Retracted
+<Multi_key> <x> <underscore> <slash>		: "̌" 	# Rising tone
+<Multi_key> <x> <underscore> <0>		: "̥" 	# Voiceless
+<Multi_key> <x> <equal>				: "̩" 	# Syllabic
+<Multi_key> <x> <underscore> <greater>		: "ʼ" 	# Ejective
+<Multi_key> <x> <underscore> <question> <backslash>	: "ˤ" 	# Pharyngealized
+<Multi_key> <x> <underscore> <backslash>	: "̂" 	# Falling tone
+<Multi_key> <x> <underscore> <asciicircum>	: "̯" 	# Non-syllabic
+<Multi_key> <x> <underscore> <braceright>	: "̚" 	# No audible release
 <Multi_key> <x> <grave>				: "˞"   # Rhotic Hook
+<Multi_key> <x> <tilde>				: "̃"	# Nasalization
+<Multi_key> <x> <underscore> <tilde>		: "̃"	# Nasalization
+<Multi_key> <x> <underscore> <A>		: "̘"	# Advanced tongue root
+<Multi_key> <x> <underscore> <a>		: "̺"	# Apical
+<Multi_key> <x> <underscore> <B>		: "̏"	# Extra low tone 
+<Multi_key> <x> <underscore> <B> <underscore> <B>	: "᷅"	# Low rising tone 
+<Multi_key> <x> <underscore> <c>		: "̜"	# Less rounded 
+<Multi_key> <x> <underscore> <d>		: "̪"	# Dental
+<Multi_key> <x> <underscore> <e>		: "̴"	# Velarized or pharyngealized
+<Multi_key> <x> <less> <F> <greater>		: "↘"	# Global fall
+<Multi_key> <x> <underscore> <F>		: "̂"	# Falling tone
+<Multi_key> <x> <underscore> <G>		: "ˠ"	# Velarized
+<Multi_key> <x> <underscore> <H>		: "́"	# High tone
+<Multi_key> <x> <underscore> <H> <underscore> <T>	: "᷄"	# High rising tone 
+<Multi_key> <x> <underscore> <h>		: "ʰ"	# Aspiration 
+<Multi_key> <x> <underscore> <k>		: "̰"	# Creaky voice
+<Multi_key> <x> <underscore> <L>		: "̀"	# Low tone
+<Multi_key> <x> <underscore> <l>		: "ˡ"	# Lateral release
+<Multi_key> <x> <underscore> <M>		: "̄"	# Mid tone
+<Multi_key> <x> <underscore> <m>		: "̻"	# Laminal
+<Multi_key> <x> <underscore> <N>		: "̼"	# Linguolabial 
+<Multi_key> <x> <underscore> <n>		: "ⁿ"	# Nasal release
+<Multi_key> <x> <underscore> <O>		: "̹"	# More rounded
+<Multi_key> <x> <underscore> <o>		: "̞"	# Lowered
+<Multi_key> <x> <underscore> <q>		: "̙"	# Retracted tongue root
+<Multi_key> <x> <less> <R> <greater>		: "↗"	# Global rise
+<Multi_key> <x> <underscore> <R>		: "̌"	# Rising tone
+<Multi_key> <x> <underscore> <R> <underscore> <F>	: "᷈"	# Rising falling tone 
+<Multi_key> <x> <underscore> <r>		: "̝"	# Raised
+<Multi_key> <x> <underscore> <T>		: "̋"	# Extra high tone
+<Multi_key> <x> <underscore> <t>		: "̤"	# Breathy voice
+<Multi_key> <x> <underscore> <v>		: "̬"	# Voiced
+<Multi_key> <x> <underscore> <w>		: "ʷ"	# Labialized
+<Multi_key> <x> <underscore> <X>		: "̆"	# Extra-short
+<Multi_key> <x> <underscore> <x>		: "̽"	# Mid-centralized
 <Multi_key> <x> <t> <i> <e> 			: "͡"	# TIE BAR
-<Multi_key> <x> <underscore> <H>		: "ʰ"	# Aspiration diacritic
-<Multi_key> <x> <underscore> <N>		: "̼"	# Linguolabial diacritic
-<Multi_key> <x> <underscore> <w>		: "ʷ"	# Labialized diacritic
-<Multi_key> <x> <Q>				: "ɒ"	# Open back unrounded vowel
 # Spacing Modifier Letters
 <Multi_key> <slash> <U0294>				: "ʡ"	U02A1 # LATIN LETTER GLOTTAL STOP WITH STROKE
 <Multi_key> <KP_Divide> <U0294>				: "ʡ"	U02A1 # LATIN LETTER GLOTTAL STOP WITH STROKE
