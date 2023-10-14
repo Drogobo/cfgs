@@ -1440,7 +1440,7 @@
 <Multi_key> <x> <N> <backslash>			: "ɴ"	# Voiced uvular nasal
 <Multi_key> <x> <O>				: "ɔ"   # Open-mid back rounded vowel
 <Multi_key> <x> <O> <backslash>			: "ʘ"   # Bilabial Click
-<Multi_key> <x> <6>				: "ɒ"   # Open back rounded vowel
+<Multi_key> <x> <Q>				: "ɒ"   # Open back rounded vowel
 <Multi_key> <x> <R>				: "ʁ"   # Voiced uvular fricative
 <Multi_key> <x> <R> <backslash>			: "ʀ"   # Voiced uvular trill
 <Multi_key> <x> <S>				: "ʃ"   # Voiceless postalveolar fricative
