@@ -1500,8 +1500,8 @@
 <Multi_key> <x> <underscore> <asciicircum>	: "̯" 	# Non-syllabic
 <Multi_key> <x> <underscore> <braceright>	: "̚" 	# No audible release
 <Multi_key> <x> <grave>				: "˞"   # Rhotic Hook
-<Multi_key> <x> <tilde>				: "̃"	# Nasalization
-<Multi_key> <x> <underscore> <tilde>		: "̃"	# Nasalization
+<Multi_key> <x> <asciitilde>			: "̃"	# Nasalization
+<Multi_key> <x> <underscore> <asciitilde>	: "̃"	# Nasalization
 <Multi_key> <x> <underscore> <A>		: "̘"	# Advanced tongue root
 <Multi_key> <x> <underscore> <a>		: "̺"	# Apical
 <Multi_key> <x> <underscore> <B>		: "̏"	# Extra low tone 
