@@ -26,6 +26,8 @@ vim.cmd('set termguicolors')				-- For terminal stuff
 vim.opt.tabstop = 4					-- Set the width of a tabstop (number of spaces)
 vim.opt.shiftwidth = 4					-- Set the width of an indent (number of spaces)
 vim.opt.expandtab = false					-- Use tabs instead of spaces
+vim.cmd('autocmd FileType * setlocal noexpandtab')
+vim.o.expandtab = false
 
 -- PLUGINS
 local ensure_packer = function()
@@ -41,6 +43,12 @@ end
 local packer_bootstrap = ensure_packer()
 
 require('plugins')
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
 require('nvim-highlight-colors').setup {}
 require('lualine').setup {
 	options = {
@@ -49,9 +57,9 @@ require('lualine').setup {
 		component_separators = { left = '', right = ''},
 		section_separators = { left = '', right = ''},
 		disabled_filetypes = {
-		statusline = {},
-		winbar = {},
-	},
+			statusline = {},
+			winbar = {},
+		},
 		ignore_focus = {},
 		always_divide_middle = true,
 		globalstatus = false,
@@ -65,7 +73,7 @@ require('lualine').setup {
 		lualine_a = {'mode'},
 		lualine_b = {'branch', 'diff', 'diagnostics'},
 		lualine_c = {'filename'},
-		lualine_x = {''},
+		lualine_x = {'filetype'},
 		lualine_y = {'progress'},
 		lualine_z = {'location'}
 	},

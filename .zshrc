@@ -128,7 +128,7 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/library"
 export HOME=/home/$USER
 
 # ALIASES
-alias updates='paru -Syu && flatpak update && nvim --headless +PlugInstall +PlugUpdate +qa && echo'
+alias updates="paru -Syu && flatpak update && nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
 alias n='nvim'
 alias p='paru'
 alias d='devour'

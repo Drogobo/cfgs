@@ -12,6 +12,7 @@ return require('packer').startup(function(use)
 	use 'othree/html5.vim'
 	use 'pangloss/vim-javascript'
 	use 'evanleck/vim-svelte'
+	use 'mattn/webapi-vim'
 	if packer_bootstrap then
 		require('packer').sync()
 	end

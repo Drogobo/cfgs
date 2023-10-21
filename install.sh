@@ -146,17 +146,12 @@ fi
 
 if ! $copyonly; then
 # UPDATE SYSTEM
-	echo -e "${COLOR}Do a quick update to finalize.${NOCOLOR}"
-	if [ -x "$(command -v apt)" ]; then doas apt update && doas apt upgrade
-	elif [ -x "$(command -v pacman)" ]; then paru -Syu
-	elif [ -x "$(command -v emerge)" ]; then doas emaint -a sync && doas emerge --ask --verbose --update --deep --changed-use @world
-	else echo "Cannot figure out how to update on whatever this OS is."; fi
-	flatpak update
-	nvim --headless +PlugInstall +PlugUpdate +qa
-	echo
-else
-	echo -e "${COLOR}Skipping update.${NOCOLOR}"
-fi
+echo -e "${COLOR}Do a quick update to finalize.${NOCOLOR}"
+paru -Syu
+else echo "Cannot figure out how to update on whatever this OS is."; fi
+flatpak update
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+echo
 
 # SPECIAL MESSAGE
 echo -e "${COLOR}I also included a bonus wallpaper! It was copied to ~/Pictures. You might want to reboot before doing anything, so you don't accidentally break something.${NOCOLOR}"
