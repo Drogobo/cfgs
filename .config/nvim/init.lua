@@ -1,86 +1,65 @@
-vim.cmd([[
-" BASIC STUFF
-set linebreak
-set showmatch			" show matching 
-set ignorecase			" case insensitive 
-set hlsearch			" highlight search 
-set incsearch			" incremental search
-set noexpandtab			" converts spaces to tabs
-set autoindent			" indent a new line the same amount as the line just typed
-set number			" add line numbers
-syntax on			" syntax highlighting
-syntax enable			" idk man
-set mouse=a			" enable mouse click
-set nocompatible		" not compatable
-set noshowmode
-set wildmode=longest,list,full " get bash-like tab completions
-set clipboard=unnamedplus	" using system clipboard
-filetype plugin on		" For plugs
-set cursorline			" highlight current cursorline
-set swapfile			" create swapfiles
-set backupdir=~/.cache/vim	" Directory to store backup files.
-set encoding=utf-8		" Encode with utf8
-filetype plugin indent on	" Indents or sthing idk 
-set splitbelow splitright	" Split opens at the bottom right
-set completeopt=menu,menuone,noselect	" Auto completion stuff
-set backspace=indent,eol,start
-set termguicolors		"for terminal stuff.
-function! GetUserInput()
-	:set noexpandtab
-	:retab!
-	:%s/	/	/g
-endfunction
+-- BASIC STUFF
+vim.cmd('set linebreak')
+vim.cmd('set showmatch')				-- show matching
+vim.cmd('set ignorecase')				-- case insensitive
+vim.cmd('set hlsearch')					-- highlight search
+vim.cmd('set incsearch')				-- incremental search
+vim.cmd('set autoindent')				-- indent a new line the same amount as the line just typed
+vim.cmd('set number')					-- add line numbers
+vim.cmd('syntax enable')				-- enable syntax highlighting
+vim.cmd('set mouse=')					-- disable mouse
+vim.cmd('set nocompatible')				-- not compatible
+vim.cmd('set noshowmode')
+vim.cmd('set wildmode=longest,list,full')		-- get bash-like tab completions
+vim.cmd('set clipboard=unnamedplus')			-- using system clipboard
+vim.cmd('filetype plugin on')				-- For plugins
+vim.cmd('set cursorline')				-- highlight the current cursor line
+vim.cmd('set swapfile')					-- create swap files
+vim.cmd('set backupdir=~/.cache/nvim')			-- Directory to store backup files.
+vim.cmd('set encoding=utf-8')				-- Encode with UTF-8
+vim.cmd('filetype plugin indent on')			-- Enable indenting for different file types
+vim.cmd('set splitbelow')				-- Split opens at the bottom
+vim.cmd('set splitright')
+vim.cmd('set completeopt=menu,menuone,noselect')	-- Auto-completion options
+vim.cmd('set backspace=indent,eol,start')
+vim.cmd('set termguicolors')				-- For terminal stuff
+vim.opt.tabstop = 4					-- Set the width of a tabstop (number of spaces)
+vim.opt.shiftwidth = 4					-- Set the width of an indent (number of spaces)
+vim.opt.expandtab = false					-- Use tabs instead of spaces
 
-" BINDINGS
-imap <C-BS> <C-W>
-nnoremap <F2> :call GetUserInput()<CR>
-nnoremap <F3> :noh<CR>
-nnoremap <F4> :NvimTreeToggle<CR>
-nnoremap <C-H> b
-nnoremap <C-L> w
+-- PLUGINS
+local ensure_packer = function()
+	local fn = vim.fn
+	local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+		vim.cmd [[packadd packer.nvim]]
+		return true
+	end
+	return false
+end
+local packer_bootstrap = ensure_packer()
 
-" Bind arrows to move visual lines
-nnoremap <Down> gj
-nnoremap <Up> gk 
-vnoremap <Down> gj
-vnoremap <Up> gk
-
-" PLUGINS
-call plug#begin()
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'tpope/vim-surround'
-Plug 'rust-lang/rust.vim'
-Plug 'mattn/emmet-vim'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'brenoprata10/nvim-highlight-colors'
-Plug 'lambdalisue/suda.vim'
-Plug 'nvim-tree/nvim-tree.lua'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'othree/html5.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'evanleck/vim-svelte', {'branch': 'main'}
-call plug#end()
-]])
-
+require('plugins')
 require('nvim-highlight-colors').setup {}
 require('lualine').setup {
 	options = {
-	icons_enabled = true,
-	theme = 'material',
-	component_separators = { left = '', right = ''},
-	section_separators = { left = '', right = ''},
-	disabled_filetypes = {
+		icons_enabled = true,
+		theme = 'material',
+		component_separators = { left = '', right = ''},
+		section_separators = { left = '', right = ''},
+		disabled_filetypes = {
 		statusline = {},
 		winbar = {},
 	},
-	ignore_focus = {},
-	always_divide_middle = true,
-	globalstatus = false,
-	refresh = {
-		statusline = 1000,
-		tabline = 1000,
-		winbar = 1000,
-	}
+		ignore_focus = {},
+		always_divide_middle = true,
+		globalstatus = false,
+		refresh = {
+			statusline = 1000,
+			tabline = 1000,
+			winbar = 1000,
+		}
 	},
 	sections = {
 		lualine_a = {'mode'},
@@ -115,3 +94,65 @@ require("nvim-tree").setup({
 		dotfiles = true,
 	},
 })
+
+-- CUSTOM FUNCTIONS
+function repeat_action()
+	local action = vim.fn.input("Enter the action to repeat: ")
+	if action == "" then
+		print("No action entered. Aborting.")
+		return
+	end
+	action = "normal! " .. action
+
+	local count = vim.fn.input("Enter the number of times to repeat the action: ")
+	count = tonumber(count)
+	if not count or count <= 0 then
+		print("Invalid input. Please enter a valid number.")
+		return
+	end
+
+	for i = 1, count do
+		vim.cmd(action)
+	end
+
+	print("Action repeated " .. count .. " times.")
+end
+function spaces_to_tabs()
+	local num_spaces = vim.fn.input("Enter the number of spaces to replace with tabs: ")
+	if num_spaces == nil or num_spaces == '' then
+		print("No input provided. Aborting.")
+		return
+	end
+	
+	local spaces_to_replace = string.rep(' ', tonumber(num_spaces))
+	local current_line = vim.fn.getline(1)
+	local new_line = vim.fn.substitute(current_line, spaces_to_replace, '\t', 'g')
+	vim.fn.setline(1, new_line)
+
+	for line_number = 2, vim.fn.line('$') do
+		current_line = vim.fn.getline(line_number)
+		new_line = vim.fn.substitute(current_line, spaces_to_replace, '\t', 'g')
+		vim.fn.setline(line_number, new_line)
+    	end
+
+	print("Spaces replaced with tabs.")
+end
+
+-- BINDINGS
+vim.api.nvim_set_keymap('n', '<F5>', ':lua repeat_action()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<F2>', ':lua spaces_to_tabs()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<F3>', ':noh<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<F4>', ':NvimTreeToggle<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-H>', 'b', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-L>', 'w', { noremap = true })
+
+-- VIM ELITISM
+vim.api.nvim_set_keymap('n', '<Up>', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Down>', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Left>', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Right>', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<Up>', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<Down>', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<Left>', '<Nop>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<Right>', '<Nop>', { noremap = true, silent = true })

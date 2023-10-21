@@ -138,6 +138,7 @@ alias findproc='ps aux | grep -i'
 alias killde='kquitapp5 plasmashell && kstart5 plasmashell'
 alias 0x0="curl -F 'file=@-' 0x0.st"
 alias day='date +"%B %d, %Y"'
+alias calendar='date +"%A, %B %d, %Y%n" && cal --months 3 --sunday --color=always --span'
 alias makemykernel='doas cp /usr/src/linux/.config /usr/src/linux/backup.config && doas genkernel --makeopts=-j9 --kernel-config=/usr/src/linux/backup.config --menuconfig all && doas grub-mkconfig -o /boot/grub/grub.cfg'
 findpid() {
 	pgrep -f -i "$1" | xargs echo 
