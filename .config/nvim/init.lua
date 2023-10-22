@@ -45,8 +45,8 @@ local packer_bootstrap = ensure_packer()
 require('plugins')
 vim.cmd([[
   augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+	autocmd!
+	autocmd BufWritePost plugins.lua source <afile> | PackerCompile
   augroup end
 ]])
 require('nvim-highlight-colors').setup {}
@@ -106,7 +106,7 @@ require("nvim-tree").setup({
 -- CUSTOM FUNCTIONS
 function repeat_action()
 	local action = vim.fn.input("Enter the action to repeat: ")
-	if action == "" then
+	if action == "" or action == nil then
 		print("No action entered. Aborting.")
 		return
 	end
@@ -125,13 +125,15 @@ function repeat_action()
 
 	print("Action repeated " .. count .. " times.")
 end
+
 function spaces_to_tabs()
 	local num_spaces = vim.fn.input("Enter the number of spaces to replace with tabs: ")
+	vim.cmd("redraw") -- Clear the command line
 	if num_spaces == nil or num_spaces == '' then
-		print("No input provided. Aborting.")
+		vim.cmd("echo 'No input provided. Aborting.'")
 		return
 	end
-	
+
 	local spaces_to_replace = string.rep(' ', tonumber(num_spaces))
 	local current_line = vim.fn.getline(1)
 	local new_line = vim.fn.substitute(current_line, spaces_to_replace, '\t', 'g')
@@ -141,9 +143,9 @@ function spaces_to_tabs()
 		current_line = vim.fn.getline(line_number)
 		new_line = vim.fn.substitute(current_line, spaces_to_replace, '\t', 'g')
 		vim.fn.setline(line_number, new_line)
-    	end
+	end
 
-	print("Spaces replaced with tabs.")
+	vim.cmd("echo 'Spaces replaced with tabs.'")
 end
 
 -- BINDINGS
