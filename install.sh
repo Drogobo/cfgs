@@ -9,7 +9,6 @@ kde=true
 while getopts 'csk' OPTION; do
 	case "$OPTION" in
 		c)  copyonly=true;; 
-		s)  suckless=false;;
 	esac
 done
 
@@ -21,13 +20,12 @@ JUEGOS=$(pwd)
 if $kde && $suckless && ! $copyonly; then
 echo -e "${COLOR}This program will install dwm, dmenu, dwmblocks, and a few good utilities with my configs. READ THE SOURCE OF THIS SHELL SCRIPT! You can change what it installs with these flags:${NOCOLOR}"
 echo -e "${COLOR}-c to only copy configs${NOCOLOR}"
-echo -e "${COLOR}-s to exclude suckless${NOCOLOR}"
 fi
 
 # SOFTWARE INSTALL
 if ! $copyonly; then
 	echo -e "${COLOR}Install software for my configs.${NOCOLOR}"
-	sudo pacman -S --needed neovim rustup kitty xorg playerctl pipewire neofetch flatpak doas git base-devel python-pip luajit curl xclip zsh meson sassc zsh-completions xcb-util-cursor redshift inkscape wget xorg-xmodmap picom xorg-setxkbmap xcursor-vanilla-dmz feh libxcb thunar p7zip flameshot blueman python-pynvim network-manager-applet cbatticon acpi ttf-hack acpilight xdg-user-dirs && sudo chmod u+s "$(which fusermount)"
+	sudo pacman -S --needed neovim rustup kitty xorg playerctl pipewire neofetch flatpak doas git base-devel python-pip luajit curl xclip zsh meson sassc zsh-completions xcb-util-cursor redshift inkscape wget xorg-xmodmap picom xorg-setxkbmap xcursor-vanilla-dmz feh libxcb thunar p7zip flameshot blueman python-pynvim network-manager-applet cbatticon acpi ttf-hack acpilight xdg-user-dirs awesome && sudo chmod u+s "$(which fusermount)"
 	curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 	sudo usermod -a -G video $LOGNAME
 	echo -e "${COLOR}Installing paru-bin from the AUR.${NOCOLOR}"
@@ -55,27 +53,6 @@ if ! $copyonly; then
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 else
 	echo -e "${COLOR}Skipping zsh install.${NOCOLOR}"
-fi
-
-# SUCKLESS STUFF
-if $suckless; then
-	mkdir -p ~/.config/dwm/
-	sudo mkdir /usr/share/xsessions/
-	sudo cp -v suckless/dwm.desktop /usr/share/xsessions/dwm.desktop
-	sudo cp -v suckless/index.theme /usr/share/icons/default/index.theme
-	cd suckless/dwm-src/
-	sudo make clean install
-	cd ../dmenu-src/
-	sudo make clean install
-	cd ../dwmblocks-src/
-	sudo make clean install
-	cd ../..
-	git clone https://codeberg.org/Drogobo/x-disable-middle-click-paste.git
-	cd x-disable-middle-click-paste/
-	make && sudo make install
-	cd .. && rm -rf x-disable-middle-click-paste/
-else
-	echo -e "${COLOR}Skipping suckless install.${NOCOLOR}"
 fi
 
 # COPY CONFIGS / ENV VARIABLES
@@ -128,20 +105,6 @@ if ! $copyonly; then
 	cd "${JUEGOS}"
 else
 	echo -e "${COLOR}Skipping GTK and icon theme.${NOCOLOR}"
-fi
-
-# INSTALL NERD FONTS
-if ! $copyonly; then
-	echo -e "${COLOR}Installing hack nerd font.${NOCOLOR}"
-	mkdir nerd_font && cd nerd_font
-	wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/NerdFontsSymbolsOnly.zip 
-	7z e NerdFontsSymbolsOnly.zip
-	rm NerdFontsSymbolsOnly.zip readme.md LICENSE.md
-	sudo cp -r * /usr/share/fonts/TTF/
-	cd ..
-	rm -rf nerd_font
-else
-	echo -e "${COLOR}Skipping font install.${NOCOLOR}"
 fi
 
 if ! $copyonly; then
