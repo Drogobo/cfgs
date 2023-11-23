@@ -4105,6 +4105,7 @@
 <Multi_key> <underscore> <parenleft>		: "₍"	U208D # SUBSCRIPT LEFT PARENTHESIS
 <dead_caron> <parenright>			: "₎"	U208E # SUBSCRIPT RIGHT PARENTHESIS
 <Multi_key> <underscore> <parenright>		: "₎"	U208E # SUBSCRIPT RIGHT PARENTHESIS
+<Multi_key> <underscore> <i>				: "ᵢ"	U1D62 # SUBSCRIPT I
 # Letterlike Symbols
 <Multi_key> <C> <C>			: "ℂ"	U2102 # DOUBLE-STRUCK CAPITAL C
 <Multi_key> <N> <N>			: "ℕ"	U2115 # DOUBLE-STRUCK CAPITAL N
@@ -5221,6 +5222,7 @@
 <Multi_key> <U2395> <apostrophe>	: "⍞"	U235e # * ¨ APL FUNCTIONAL SYMBOL QUOTE QUAD
 <Multi_key> <apostrophe> <U2395>	: "⍞"	U235e # ¨ * APL FUNCTIONAL SYMBOL QUOTE QUAD
 <Multi_key> <U25cb> <asterisk>		: "⍟"	U235f # ○ * APL FUNCTIONAL SYMBOL CIRCLE STAR
+<Multi_key> <asterisk> <asterisk> <asterisk> : "⁂"	U2042 # Asterism
 <Multi_key> <asterisk> <U25cb>		: "⍟"	U235f # * ○ APL FUNCTIONAL SYMBOL CIRCLE STAR
 <Multi_key> <colon> <U2395>		: "⍠"	U2360 # : ⎕ APL FUNCTIONAL SYMBOL QUAD COLON
 <Multi_key> <U2395> <colon>		: "⍠"	U2360 # ⎕ : APL FUNCTIONAL SYMBOL QUAD COLON
@@ -5365,3 +5367,5 @@
 <dead_grave> <eng>			: "ŋ̀" # LATIN SMALL LETTER ENG WITH GRAVE
 <dead_acute> <ENG>			: "Ŋ́" # LATIN CAPITAL LETTER ENG WITH ACUTE
 <dead_grave> <ENG>			: "Ŋ̀" # LATIN CAPITAL LETTER ENG WITH GRAVE
+# FAV EMOJIS!!!!
+<Multi_key> <7> <7> <7>			: "🤑"	U1f911 # MONEY MOUTH EMOJI

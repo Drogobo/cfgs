@@ -31,7 +31,7 @@ theme.bg_minimize   = col_black
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = col_white
-theme.fg_focus      = col_black
+theme.fg_focus      = col_gray
 theme.fg_urgent     = col_gray
 theme.fg_minimize   = col_white
 

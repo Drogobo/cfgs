@@ -7,7 +7,6 @@ run() {
 	fi
 }
 
-setxkbmap -layout us altgr-intl compose:rctrl;
 xset r rate 300 50;
 run "picom"
 run "redshift-gtk"
