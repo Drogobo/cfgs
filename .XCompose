@@ -1490,7 +1490,7 @@
 <Multi_key> <x> <minus> <backslash>		: "‿"   # Linking mark
 <Multi_key> <x> <underscore> <quotedbl>		: "̈" 	# Centralized
 <Multi_key> <x> <underscore> <plus>		: "̟" 	# Advanced
-<Multi_key> <x> <underscore> <minus>		: "̠̈" 	# Retracted
+<Multi_key> <x> <underscore> <minus>		: "̠" 	# Retracted
 <Multi_key> <x> <underscore> <slash>		: "̌" 	# Rising tone
 <Multi_key> <x> <underscore> <0>		: "̥" 	# Voiceless
 <Multi_key> <x> <equal>				: "̩" 	# Syllabic

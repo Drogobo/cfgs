@@ -17,6 +17,8 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+-- Multi-monitor helper
+local xrandr = require("xrandr")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -63,6 +65,7 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
+    awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
     awful.layout.suit.spiral,
     awful.layout.suit.spiral.dwindle,
@@ -75,7 +78,6 @@ awful.layout.layouts = {
     awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
@@ -263,8 +265,9 @@ globalkeys = gears.table.join(
 		{ description = "start rofi", group = "launcher"}),
 	awful.key({ modkey }, "t", function () awful.util.spawn( "thunar" ) end,
 		{ description = "start thunar", group = "launcher"}),
-	awful.key({ }, "Print", function () awful.util.spawn( "flameshot gui" ) end,
+	awful.key({ }, "Print", function () awful.spawn.with_shell(gears.filesystem.get_configuration_dir() .. "flameshot.sh") end,
 		{ description = "open flameshot", group = "launcher"}),
+	awful.key({ modkey }, "p", function() xrandr.xrandr() end),
 
 	-- Media keys
 	awful.key({}, "XF86AudioMute", function () awful.util.spawn( "pactl set-sink-mute 0 toggle" ) end,
