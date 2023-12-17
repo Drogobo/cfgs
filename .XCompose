@@ -1391,7 +1391,7 @@
 <Multi_key> <underscore> <period> <E>		: "Ė̄"	# LATIN CAPITAL LETTER E WITH DOT ABOVE plus combining macron
 <Multi_key> <minus> <period> <e>		: "ė̄"	# LATIN SMALL LETTER E WITH DOT ABOVE plus combining macron
 <Multi_key> <underscore> <period> <e>		: "ė̄"	# LATIN SMALL LETTER E WITH DOT ABOVE plus combining macron
-# IPA Extensions
+# IPA Extensions (XSAMPA)
 <Multi_key> <x> <b> <underscore> <less>		: "ɓ"   # Voiced bilabial implosive
 <Multi_key> <x> <d> <grave>			: "ɖ"   # Voiced retroflex plosive
 <Multi_key> <x> <d> <underscore> <less>		: "ɗ"   # Voiced alveolar implosive
@@ -1408,8 +1408,9 @@
 <Multi_key> <x> <s> <grave>			: "ʂ"	# Voiceless retroflex fricative
 <Multi_key> <x> <s> <backslash>			: "ɕ"	# Voiceless alveolo-palatal fricative
 <Multi_key> <x> <t> <grave>			: "ʈ"	# Voiceless retroflex plosive
-<Multi_key> <x> <v> <backslash>			: "ʋ"   # Labiodental approximant
-<Multi_key> <x> <P>				: "ʋ"   # Labiodental approximant
+<Multi_key> <x> <v> <backslash>			: "ʋ"   # Voiced labiodental approximant
+<Multi_key> <x> <P>				: "ʋ"   # Voiced labiodental approximant
+<Multi_key> <x> <V> <backslash>			: "ⱱ"	# Voiced labiodental flap (non-XSAMPA)
 <Multi_key> <x> <x> <backslash>			: "ɧ"	# Voiceless palatal-velar fricative
 <Multi_key> <x> <z> <grave>			: "ʐ"	# Voiced retroflex fricative
 <Multi_key> <x> <z> <backslash>			: "ʑ"	# Voiced alveolo-palatal fricative
@@ -1535,7 +1536,18 @@
 <Multi_key> <x> <underscore> <w>		: "ʷ"	# Labialized
 <Multi_key> <x> <underscore> <X>		: "̆"	# Extra-short
 <Multi_key> <x> <underscore> <x>		: "̽"	# Mid-centralized
-<Multi_key> <x> <t> <i> <e> 			: "͡"	# TIE BAR
+<Multi_key> <x> <underscore> 			: "͡"	# Tie bar (non-XSAMPA)
+<Mutli_key> <x> <t> <s>				: "t͡s" # Voiceless alveolar sibilant affricate 
+<Mutli_key> <x> <d> <z> 			: "d͡z" # Voiced alveolar sibilant affricate
+<Mutli_key> <x> <t> <S>				: "t͡ʃ" # Voiceless postalveolar affricate
+<Mutli_key> <x> <d> <Z>				: "d͡ʒ" # Voiced postalveolar affricate
+<Mutli_key> <x> <t> <s> <backslash>			: "t͡ɕ" # Voiceless alveolo-palatal affricate
+<Mutli_key> <x> <d> <z> <backslash>			: "d͡ʑ" # Voiced alveolo-palatal affricate
+<Mutli_key> <x> <t> <K>				: "t͡ɬ" # Voiceless alveolar lateral affricate
+<Mutli_key> <x> <k> <p>				: "k͡p" # Voiceless labial–velar plosive
+<Mutli_key> <x> <g> <b>				: "ɡ͡b" # Voiced labial–velar plosive
+<Mutli_key> <x> <N> <m>				: "ŋ͡m" # Voiced labial–velar nasal
+
 # Spacing Modifier Letters
 <Multi_key> <slash> <U0294>				: "ʡ"	U02A1 # LATIN LETTER GLOTTAL STOP WITH STROKE
 <Multi_key> <KP_Divide> <U0294>				: "ʡ"	U02A1 # LATIN LETTER GLOTTAL STOP WITH STROKE
