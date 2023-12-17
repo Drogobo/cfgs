@@ -29,7 +29,7 @@ zstyle ':omz:update' frequency 7
 # DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
@@ -132,11 +132,9 @@ alias updates="paru -Syu && flatpak update && nvim --headless -c 'autocmd User P
 alias n='nvim'
 alias p='paru'
 alias d='devour'
-alias btw='neofetch'
+alias btw='fastfetch -s OS:Host:Kernel:Uptime:Packages:Shell:WM:Theme:Terminal:TerminalFont:CPU:GPU:Memory:Swap:Disk:Processes:Break:Colors'
 alias orphankiller='paru -Qtdq | paru -Rns - '
 alias findproc='ps aux | grep -i'
-alias killde='kquitapp5 plasmashell && kstart5 plasmashell'
-alias 0x0="curl -F 'file=@-' 0x0.st"
 alias day='date +"%B %d, %Y"'
 alias calendar='date +"%A, %B %d, %Y%n" && cal --months 3 --sunday --color=always --span'
 alias makemykernel='doas cp /usr/src/linux/.config /usr/src/linux/backup.config && doas genkernel --makeopts=-j9 --kernel-config=/usr/src/linux/backup.config --menuconfig all && doas grub-mkconfig -o /boot/grub/grub.cfg'
