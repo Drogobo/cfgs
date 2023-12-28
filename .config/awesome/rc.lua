@@ -252,7 +252,7 @@ end)
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end)--,
+    -- awful.button({ }, 3, function () mymainmenu:toggle() end)--,
     -- awful.button({ }, 4, awful.tag.viewnext),
     -- awful.button({ }, 5, awful.tag.viewprev)
 ))
@@ -270,21 +270,21 @@ globalkeys = gears.table.join(
 	awful.key({ modkey }, "p", function() xrandr.xrandr() end),
 
 	-- Media keys
-	awful.key({}, "XF86AudioMute", function () awful.util.spawn( "pactl set-sink-mute 0 toggle" ) end,
+	awful.key({}, "XF86AudioMute", function () os.execute( "pactl set-sink-mute 0 toggle" ) end,
 		{ description = "mute audio", group = "none"}),
-	awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn( "pactl set-sink-volume 0 -5%" ) end,
+	awful.key({}, "XF86AudioLowerVolume", function () os.execute( "pactl set-sink-volume 0 -5%" ) end,
 		{ description = "decrease audio", group = "none"}),
-	awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn( "pactl set-sink-volume 0 +5%" ) end,
+	awful.key({}, "XF86AudioRaiseVolume", function () os.execute( "pactl set-sink-volume 0 +5%" ) end,
 		{ description = "increase audio", group = "none"}),
-	awful.key({}, "XF86AudioPlay", function () awful.util.spawn( "playerctl play-pause" ) end,
+	awful.key({}, "XF86AudioPlay", function () os.execute( "playerctl play-pause" ) end,
 		{ description = "start/stop audio playback", group = "none"}),
-	awful.key({}, "XF86AudioNext", function () awful.util.spawn( "playerctl next" ) end,
+	awful.key({}, "XF86AudioNext", function () os.execute( "playerctl next" ) end,
 		{ description = "go to next media in list", group = "none"}),
-	awful.key({}, "XF86AudioPrev", function () awful.util.spawn( "playerctl previous" ) end,
+	awful.key({}, "XF86AudioPrev", function () os.execute( "playerctl previous" ) end,
 		{ description = "go to previous media in list", group = "none"}),
-	awful.key({}, "XF86MonBrightnessUp", function () awful.util.spawn( "xbacklight -inc 5" ) end,
+	awful.key({}, "XF86MonBrightnessUp", function () os.execute( "xbacklight -inc 5" ) end,
 		{ description = "increase backlight", group = "none"}),
-	awful.key({}, "XF86MonBrightnessDown", function () awful.util.spawn( "xbacklight -dex 5" ) end,
+	awful.key({}, "XF86MonBrightnessDown", function () os.execute( "xbacklight -dex 5" ) end,
 		{ description = "decrease backlight", group = "none"}),
 
 	-- Default hotkeys
@@ -309,8 +309,8 @@ globalkeys = gears.table.join(
         end,
         {description = "focus previous by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
+    -- awful.key({ modkey,           }, "w", function () mymainmenu:show() end,
+              -- {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
